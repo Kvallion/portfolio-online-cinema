@@ -4,7 +4,6 @@ import {
 } from "@components/layout/Navigation/components/MenuItem"
 
 import { AuthItems } from "../AuthItems"
-
 import s from "./Menu.module.scss"
 
 export interface MenuProps {
@@ -16,7 +15,7 @@ const Menu: React.FC<MenuProps> = ({ title, items }) => {
 	return (
 		<nav className={s.menu}>
 			<h4 className={s.heading}>{title}</h4>
-			<ul className={s.items}>
+			<ul>
 				{items.map((item) => (
 					<MenuItem key={item.link} {...item} />
 				))}
