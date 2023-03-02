@@ -1,6 +1,6 @@
 import { Genre } from "@shared/types/movie.types"
 
-import { getGenresUrl } from "@utils/paths/api"
+import { getGenresUrl } from "@config/helpers/paths/api"
 
 import { axiosPublic } from "./api/interceptors"
 

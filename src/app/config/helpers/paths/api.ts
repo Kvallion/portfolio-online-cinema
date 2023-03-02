@@ -1,4 +1,4 @@
-import { addSlash } from "@utils/helpers/addSlash"
+import { addSlash } from "@config/helpers/addSlash"
 
 export const getGenresUrl = (path: string = "") => `/genres${addSlash(path)}`
 export const getAuthUrl = (path: string = "") => `/auth${addSlash(path)}`

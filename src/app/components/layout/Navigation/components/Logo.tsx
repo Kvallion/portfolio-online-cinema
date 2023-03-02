@@ -10,7 +10,7 @@ const Logo: React.FC<LogoProps> = () => {
 		<Link href="/" className="px-layout mb-10 block">
 			<Image
 				src={logoImg}
-				alt="Логотип Online cinema"
+				alt="Logo of Online cinema"
 				width={247}
 				height={34}
 				draggable={false}

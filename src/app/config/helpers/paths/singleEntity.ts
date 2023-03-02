@@ -1,4 +1,4 @@
-import { addSlash } from "@utils/helpers/addSlash"
+import { addSlash } from "@config/helpers/addSlash"
 
 export const getGenreUrl = (slug: string) => `/genre${addSlash(slug)}`
 export const getMovieUrl = (slug: string) => `/movie${addSlash(slug)}`
