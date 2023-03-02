@@ -1,35 +1,40 @@
 {
-    "name": "online-cinema-front",
-    "author": {
-        "email": "rayzer656@gmail.com",
-        "name": "Dmitry Demin",
-        "url": "https://github.com/Kvallion"
-    },
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "dev": "next dev",
-        "build": "next build",
-        "start": "next start",
-        "lint": "next lint"
-    },
-    "dependencies": {
-        "@types/node": "18.14.2",
-        "@types/react": "18.0.28",
-        "@types/react-dom": "18.0.11",
-        "eslint": "8.35.0",
-        "eslint-config-next": "13.2.1",
-        "next": "13.2.1",
-        "react": "18.2.0",
-        "react-dom": "18.2.0",
-        "sass": "^1.58.3",
-        "typescript": "4.9.5"
-    },
-    "devDependencies": {
-        "@trivago/prettier-plugin-sort-imports": "^4.1.1",
-        "autoprefixer": "^10.4.13",
-        "postcss": "^8.4.21",
-        "prettier": "^2.8.4",
-        "tailwindcss": "^3.2.7"
-    }
+	"name": "online-cinema-front",
+	"author": {
+		"email": "rayzer656@gmail.com",
+		"name": "Dmitry Demin",
+		"url": "https://github.com/Kvallion"
+	},
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"g:comp": "generate-react component",
+		"g:screen": "generate-react component --type=screen"
+	},
+	"dependencies": {
+		"@types/node": "18.14.2",
+		"@types/react": "18.0.28",
+		"@types/react-dom": "18.0.11",
+		"clsx": "^1.2.1",
+		"eslint": "8.35.0",
+		"eslint-config-next": "13.2.1",
+		"next": "13.2.1",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"react-icons": "^4.7.1",
+		"sass": "^1.58.3",
+		"typescript": "4.9.5"
+	},
+	"devDependencies": {
+		"@trivago/prettier-plugin-sort-imports": "^4.1.1",
+		"autoprefixer": "^10.4.13",
+		"generate-react-cli": "^8.2.0",
+		"postcss": "^8.4.21",
+		"prettier": "^2.8.4",
+		"tailwindcss": "^3.2.7"
+	}
 }

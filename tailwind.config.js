@@ -129,6 +129,13 @@ module.exports = {
           objectFit: "cover",
           pointerEvents: "none",
         },
+        ".hide-scroll": {
+          scrollWidth: "none",
+          "-ms-overflow-style": "none",
+          "&::-webkit-scrollbar": {
+            display: "none"
+          }
+        }
       });
 
     }),

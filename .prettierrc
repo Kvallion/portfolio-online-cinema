@@ -18,12 +18,11 @@
 		"^@utils/(.*)$",
 		"^@config/(.*)$",
 
-		"^../(.*)$",
-		"^./(.*)$",
+		"^[./].+[^c][^s][^s]$",
 
 		"^@assets/(.*)$",
 		"^@styles/(.*)$",
-		"(scss|css)$"
+		"^(.*)css$"
 	],
 	"importOrderSeparation": true,
 	"importOrderSortSpecifiers": true
