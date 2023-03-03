@@ -24,6 +24,6 @@
 		"^@styles/(.*)$",
 		"^(.*)css$"
 	],
-	"importOrderSeparation": true,
+	"importOrderSeparation": false,
 	"importOrderSortSpecifiers": true
 }

@@ -1,0 +1,32 @@
+.wrapper {
+	@apply relative;
+}
+
+.search {
+	@apply rounded-3xl border border-gray-700 px-3 py-2 flex items-center transition-colors;
+
+	.icon {
+		@apply fill-gray-600 mr-2 text-3xl transition-colors;
+	}
+
+	.input {
+		@apply text-white placeholder:text-gray-600 block w-full bg-transparent outline-none;
+	}
+
+	&:focus-within {
+		@apply border-gray-600;
+
+		.icon {
+			@apply fill-gray-600;
+		}
+	}
+}
+
+.list {
+	@apply absolute z-10 border border-gray-700 rounded-layout bg-gray-800 w-full animate-fade;
+	// top: calc(100% + 15px);
+
+	.empty_list {
+		@apply text-white text-center my-4;
+	}
+}
