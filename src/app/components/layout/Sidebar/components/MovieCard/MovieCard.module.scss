@@ -1,0 +1,33 @@
+.card {
+	@apply mb-4 flex items-stretch;
+
+	.poster {
+		@apply rounded-image transition-colors border border-transparent;
+	}
+	&:hover {
+		.poster {
+			@apply border-primary;
+		}
+	}
+
+	.info {
+		@apply ml-4 flex flex-col;
+		width: 67%;
+
+		.title {
+			@apply text-white text-lg font-medium truncate;
+		}
+
+		.genres {
+			@apply text-gray-600 text-sm;
+		}
+
+		.rating {
+			@apply justify-self-end flex items-center mb-2;
+
+			.star {
+				@apply fill-yellow-700 mr-2 text-lg;
+			}
+		}
+	}
+}

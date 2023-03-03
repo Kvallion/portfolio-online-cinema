@@ -6,10 +6,10 @@ interface NavigationProps {}
 
 const Navigation: React.FC<NavigationProps> = () => {
 	return (
-		<div className={s.navigation}>
+		<aside className={s.navigation}>
 			<Logo />
 			<MenuContainer />
-		</div>
+		</aside>
 	)
 }
 

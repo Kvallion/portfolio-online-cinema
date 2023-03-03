@@ -20,5 +20,5 @@ export function useSearch() {
 		setSearchTerm(e.target.value)
 	}
 
-	return { isSuccess, debouncedSearch, handleSearch, data }
+	return { isSuccess, searchTerm, handleSearch, data }
 }

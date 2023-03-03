@@ -27,6 +27,7 @@ export interface Movie {
 	poster: string
 	bigPoster: string
 	title: string
+	description: string
 	parameters: MovieParams
 	genres: Genre[]
 	actors: Actor[]

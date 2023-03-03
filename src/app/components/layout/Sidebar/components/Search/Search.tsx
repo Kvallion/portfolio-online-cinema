@@ -6,15 +6,12 @@ import { useSearch } from "./useSearch"
 interface SearchProps {}
 
 const Search: React.FC<SearchProps> = () => {
-	const { isSuccess, debouncedSearch, handleSearch, data } = useSearch()
+	const { isSuccess, searchTerm, handleSearch, data } = useSearch()
 	return (
-		<div className={s.wrapper}>
-			<SearchField
-				searchTerm={debouncedSearch}
-				handleSearch={handleSearch}
-			/>
+		<section className={s.wrapper}>
+			<SearchField searchTerm={searchTerm} handleSearch={handleSearch} />
 			{isSuccess && <SearchPopupList movies={data || []} />}
-		</div>
+		</section>
 	)
 }
 
