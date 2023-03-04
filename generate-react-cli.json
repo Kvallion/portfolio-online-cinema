@@ -29,7 +29,7 @@
 			"withStory": false,
 			"withLazy": false,
 			"withIndex": true,
-			"withInterface": true
+			"withInterface": false
 		}
 	}
 }

@@ -1,0 +1,23 @@
+.wrapper {
+	@apply w-full;
+}
+
+.field {
+	@apply relative w-full border-b border-gray-600 transition-colors focus-within:border-primary;
+	@apply text-left;
+
+	.input {
+		@apply outline-border-none focus:ring-0 bg-transparent text-gray-500 w-full m-0 px-0;
+	}
+
+	.label {
+		@apply block;
+
+		.placeholder {
+			@apply text-xs uppercase text-gray-600 block;
+		}
+	}
+}
+.error {
+	@apply mt-2 text-left text-sm w-full text-primary;
+}

@@ -1,4 +1,4 @@
-import { TemplateNameProps } from "./TemplateName.interface"
+interface TemplateNameProps {}
 
 const TemplateName: React.FC<TemplateNameProps> = () => {
 	return <main>TemplateName</main>

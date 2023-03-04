@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { Button } from "@ui/formElements/Button"
 import { Movie } from "@shared/types/movie.types"
 import { MovieCard } from "../MovieCard"
 import s from "./MovieList.module.scss"
@@ -26,7 +27,7 @@ const MovieList: React.FC<MovieListProps> = ({ title, link, movies }) => {
 				))}
 			</ul>
 			<Link href={link}>
-				<button className={s.button}>See more</button>
+				<Button className={s.button}>See more</Button>
 			</Link>
 		</div>
 	)

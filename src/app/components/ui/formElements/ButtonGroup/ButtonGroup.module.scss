@@ -1,0 +1,24 @@
+@use "~styles/vars";
+
+.btn_group {
+	@apply flex;
+
+	& > button {
+		&:first-child {
+			@apply rounded-r-none;
+		}
+		&:last-child {
+			@apply rounded-l-none;
+		}
+		&:not(:first-child):not(:last-child) {
+			@apply rounded-none;
+		}
+
+		&:nth-child(2n) {
+			background-color: rgba(vars.$primary-color, 0.7);
+			&:hover {
+				background-color: rgba(vars.$primary-color, 0.75);
+			}
+		}
+	}
+}
