@@ -2,7 +2,7 @@
 	@apply mt-32;
 
 	.form {
-		@apply mx-auto w-1/2 air-block flex flex-col items-center p-7 text-center;
+		@apply mx-auto w-1/2 air-block flex flex-col items-stretch p-7 text-center;
 
 		.buttons {
 			@apply mt-12 shadow-lg;

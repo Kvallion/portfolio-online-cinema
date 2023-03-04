@@ -14,7 +14,11 @@
 		@apply block;
 
 		.placeholder {
-			@apply text-xs uppercase text-gray-600 block;
+			@apply text-xs uppercase text-gray-600 block transition-transform;
+			transform: translateY(30px);
+			&.lifted_placeholder {
+				transform: none;
+			}
 		}
 	}
 }

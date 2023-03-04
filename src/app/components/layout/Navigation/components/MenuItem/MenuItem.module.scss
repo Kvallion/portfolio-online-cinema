@@ -1,6 +1,15 @@
 .item {
 	@apply mt-6 px-8 border-r-4 border-r-transparent transition-colors;
 
+	&:hover {
+		.text {
+			@apply text-white;
+		}
+		.icon {
+			@apply fill-white;
+		}
+	}
+
 	&.active {
 		@apply border-r-primary;
 
@@ -18,7 +27,7 @@
 }
 
 .text {
-	@apply ml-3 text-lg hover:text-white;
+	@apply ml-3 text-lg;
 }
 
 .icon {

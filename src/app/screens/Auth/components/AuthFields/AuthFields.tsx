@@ -12,7 +12,7 @@ interface AuthFieldsProps {
 
 const AuthFields: React.FC<AuthFieldsProps> = ({
 	register,
-	formState: { errors },
+	formState: { errors, dirtyFields },
 	isPasswordRequired = false,
 }) => {
 	return (
@@ -27,6 +27,7 @@ const AuthFields: React.FC<AuthFieldsProps> = ({
 				})}
 				placeholder="Email"
 				error={errors.email}
+				isPlaceholderLifted={dirtyFields.email}
 			/>
 			<TextField
 				{...register(
@@ -49,6 +50,7 @@ const AuthFields: React.FC<AuthFieldsProps> = ({
 				)}
 				type="password"
 				placeholder="Password"
+				isPlaceholderLifted={dirtyFields.password}
 				error={errors.password}
 			/>
 		</div>

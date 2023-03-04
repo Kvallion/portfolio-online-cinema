@@ -49,7 +49,7 @@ const Auth: React.FC<AuthProps> = () => {
 					isPasswordRequired
 				/>
 
-				<ButtonGroup>
+				<ButtonGroup className="justify-center">
 					<Button
 						type="submit"
 						onClick={() => setType("login")}

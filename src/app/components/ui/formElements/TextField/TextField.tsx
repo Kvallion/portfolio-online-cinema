@@ -1,24 +1,47 @@
 import cn from "clsx"
-import { InputHTMLAttributes, forwardRef } from "react"
+import { InputHTMLAttributes, forwardRef, useEffect } from "react"
 import { FieldError } from "react-hook-form"
+import { useLogger } from "@hooks/useLogger"
 import s from "./TextField.module.scss"
 
 interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
 	placeholder: string
 	error?: FieldError
+	isPlaceholderLifted?: boolean
 }
 
 const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
-	({ placeholder, error, type = "text", className, style, ...rest }, ref) => {
+	(
+		{
+			placeholder,
+			isPlaceholderLifted = false,
+			error,
+			type = "text",
+			className,
+			style,
+			value,
+			...rest
+		},
+		ref
+	) => {
+		useLogger(ref)
 		return (
-			<div className={s.wrapper}>
+			<div className={cn(s.wrapper, className)}>
 				<div className={s.field} style={style}>
 					<label className={s.label}>
-						<span className={s.placeholder}>{placeholder}</span>
+						<span
+							className={cn(s.placeholder, {
+								[s.lifted_placeholder]:
+									!!value || isPlaceholderLifted,
+							})}
+						>
+							{placeholder}
+						</span>
 						<input
 							className={s.input}
 							ref={ref}
 							type={type}
+							value={value}
 							{...rest}
 						/>
 					</label>
