@@ -1,4 +1,4 @@
-import { Cookies } from "js-cookie"
+import Cookies from "js-cookie"
 import { axiosPublic } from "@services/api/interceptors"
 import { AuthCredentials, AuthResponse } from "@store/user/user.interface"
 import { getAuthUrl } from "@config/helpers/paths/api"

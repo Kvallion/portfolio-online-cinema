@@ -3,12 +3,8 @@ import Cookies from "js-cookie"
 import { getErrorMsg } from "@services/api/errors"
 import { removeUserData } from "@services/auth/auth.helper"
 import { authService } from "@services/auth/auth.service"
-import { store } from "@store/store"
-import { logout } from "@store/user/user.actions"
 import { API_URL } from "@config/api.config"
 import { ContentTypeJson } from "./consts"
-
-const { dispatch } = store
 
 export const axiosPublic = axios.create({
 	baseURL: API_URL,
@@ -47,7 +43,7 @@ axiosPrivate.interceptors.response.use(
 				return axiosPrivate.request(originalReq)
 			} catch (error) {
 				if (getErrorMsg(error) === "jwt expired") {
-					dispatch(logout())
+					removeUserData() // AuthProvider will delete user from slice if it notice missing of tokens
 				}
 			}
 		}

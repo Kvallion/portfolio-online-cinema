@@ -1,7 +1,9 @@
-import { NextPage } from "next"
+import { NextPageAuth } from "@shared/types/roles.types"
 
-const AdminPage: NextPage = () => {
+const AdminPage: NextPageAuth = () => {
 	return <div>AdminPage</div>
 }
+
+AdminPage.onlyAdmin = true
 
 export default AdminPage

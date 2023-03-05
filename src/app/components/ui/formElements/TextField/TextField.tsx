@@ -24,7 +24,6 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 		},
 		ref
 	) => {
-		useLogger(ref)
 		return (
 			<div className={cn(s.wrapper, className)}>
 				<div className={s.field} style={style}>

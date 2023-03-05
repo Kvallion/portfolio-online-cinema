@@ -1,8 +1,13 @@
 import { QueryClient, QueryClientProvider } from "react-query"
 import { Provider } from "react-redux"
+import { HasChildren } from "@shared/types/components.utility.types"
+import { HasRoleConfig, RoleAccessConfig } from "@shared/types/roles.types"
 import { store } from "@store/store"
+import AuthProvider from "./AuthProvider/AuthProvider"
 import HeadProvider from "./HeadProvider/HeadProvider"
 import ReduxToast from "./ReduxToast"
+
+interface MainProviderProps extends HasRoleConfig, HasChildren {}
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -12,15 +17,18 @@ const queryClient = new QueryClient({
 	},
 })
 
-const MainProvider: React.FC<{
-	children: React.ReactNode
-}> = ({ children }) => {
+const MainProvider: React.FC<MainProviderProps> = ({
+	children,
+	roleConfig,
+}) => {
 	return (
 		<HeadProvider>
 			<Provider store={store}>
 				<QueryClientProvider client={queryClient}>
 					<ReduxToast />
-					{children}
+					<AuthProvider roleConfig={roleConfig}>
+						{children}
+					</AuthProvider>
 				</QueryClientProvider>
 			</Provider>
 		</HeadProvider>
