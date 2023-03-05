@@ -3,6 +3,7 @@ import ReduxToastr from "react-redux-toastr"
 const ReduxToast: React.FC = () => {
 	return (
 		<ReduxToastr
+			position="bottom-right"
 			newestOnTop={true}
 			preventDuplicates
 			progressBar

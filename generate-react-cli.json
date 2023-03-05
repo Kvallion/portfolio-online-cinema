@@ -30,6 +30,17 @@
 			"withLazy": false,
 			"withIndex": true,
 			"withInterface": false
+		},
+		"slice": {
+			"customTemplates": {
+				"component": "templates/slice/index.ts",
+				"slice": "templates/slice/TemplateName.slice.ts",
+				"interface": "templates/slice/TemplateName.interface.ts"
+			},
+			"path": "src/app/store/",
+			"withSlice": true,
+			"withInterface": true,
+			"withComponent": false
 		}
 	}
 }

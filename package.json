@@ -13,7 +13,8 @@
 		"start": "next start",
 		"lint": "next lint",
 		"g:comp": "generate-react component",
-		"g:screen": "generate-react component --type=screen"
+		"g:screen": "generate-react component --type=screen",
+		"g:slice": "generate-react component --type=slice"
 	},
 	"dependencies": {
 		"@reduxjs/toolkit": "^1.9.3",
@@ -25,6 +26,7 @@
 		"clsx": "^1.2.1",
 		"eslint": "8.35.0",
 		"eslint-config-next": "13.2.1",
+		"js-cookie": "^3.0.1",
 		"next": "13.2.1",
 		"nextjs-progressbar": "^0.0.16",
 		"react": "18.2.0",
@@ -42,6 +44,7 @@
 		"@tailwindcss/aspect-ratio": "^0.4.2",
 		"@tailwindcss/forms": "^0.5.3",
 		"@trivago/prettier-plugin-sort-imports": "^4.1.1",
+		"@types/js-cookie": "^3.0.3",
 		"autoprefixer": "^10.4.13",
 		"generate-react-cli": "^8.2.0",
 		"postcss": "^8.4.21",

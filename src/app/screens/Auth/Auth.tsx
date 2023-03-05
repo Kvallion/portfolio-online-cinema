@@ -3,6 +3,7 @@ import { SubmitHandler, useForm } from "react-hook-form"
 import { Button } from "@components/ui/formElements/Button"
 import { ButtonGroup } from "@components/ui/formElements/ButtonGroup"
 import Heading from "@ui/heading/Heading"
+import { useActions } from "@hooks/useActions"
 import { useAuth } from "@hooks/useAuth"
 import s from "./Auth.module.scss"
 import { AuthForm } from "./auth.interface"
@@ -20,23 +21,15 @@ const Auth: React.FC<AuthProps> = () => {
 		register: regInput,
 		handleSubmit,
 		formState,
-		reset,
 	} = useForm<AuthForm>({
 		mode: "onBlur",
 	})
 
-	function login(data: AuthForm) {
-		alert(`Login ${data}`)
-	}
-	function register(data: AuthForm) {
-		alert(`Register ${data}`)
-	}
+	const { register, login } = useActions()
 
 	const onSubmit: SubmitHandler<AuthForm> = (data) => {
 		if (type === "login") login(data)
 		else if (type === "register") register(data)
-
-		reset()
 	}
 	return (
 		<main className={s.root}>

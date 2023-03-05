@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit"
 import { reducer as ToastReducer } from "react-redux-toastr"
+import { UserReducer } from "@store/user/user.slice"
 
 const createStore = () =>
 	configureStore({
 		reducer: {
+			user: UserReducer,
 			toastr: ToastReducer,
 		},
 		devTools: true,
