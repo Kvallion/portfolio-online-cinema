@@ -1,1 +1,7 @@
 $primary-color: #e30b13;
+
+$bar-width: 20%;
+
+@media screen and (min-width: 1750px) {
+	$bar-width: 350px;
+}

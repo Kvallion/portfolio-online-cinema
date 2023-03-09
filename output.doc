@@ -1,0 +1,19 @@
+Folder PATH listing for volume Windows-SSD
+Volume serial number is 7899-F6A2
+C:.
++---src
+|   +---app
+|   |   +---assets
+|   |   +---components
+|   |   +---config
+|   |   +---hooks
+|   |   +---providers
+|   |   +---screens
+|   |   +---services
+|   |   +---shared
+|   |   +---store
+|   |   \---utils
+|   +---pages
+|   \---styles
+\---templates
+

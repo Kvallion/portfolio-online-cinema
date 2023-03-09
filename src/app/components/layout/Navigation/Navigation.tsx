@@ -1,3 +1,5 @@
+import cn from "clsx"
+import layout from "../Layout.module.scss"
 import s from "./Navigation.module.scss"
 import Logo from "./components/Logo"
 import { MenuContainer } from "./components/MenuContainer"
@@ -6,7 +8,7 @@ interface NavigationProps {}
 
 const Navigation: React.FC<NavigationProps> = () => {
 	return (
-		<aside className={s.navigation}>
+		<aside className={cn(layout.navigation, s.navigation)}>
 			<Logo />
 			<MenuContainer />
 		</aside>

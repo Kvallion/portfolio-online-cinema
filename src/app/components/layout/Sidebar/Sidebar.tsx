@@ -1,3 +1,5 @@
+import cn from "clsx"
+import layout from "../Layout.module.scss"
 import s from "./Sidebar.module.scss"
 import { MoviesContainer } from "./components/MoviesContainer"
 import { Search } from "./components/Search"
@@ -6,7 +8,7 @@ interface SidebarProps {}
 
 const Sidebar: React.FC<SidebarProps> = () => {
 	return (
-		<aside className={s.sidebar}>
+		<aside className={cn(layout.sidebar, s.sidebar)}>
 			<Search />
 			<MoviesContainer />
 		</aside>

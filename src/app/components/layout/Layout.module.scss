@@ -1,21 +1,46 @@
-$bar-width: 20%;
+@use "~styles/vars";
 
 .layout {
-	> *:first-child,
-	> *:last-child {
+	@apply relative;
+	// @apply grid;
+	// grid-template-columns: vars.$bar-width 1fr vars.$bar-width;
+	// grid-template-rows: 200px 1fr;
+	// grid-template-areas: /**/
+	// 	"nav adm_nav sb"
+	// 	"nav page sb";
+
+	// .admin_navigation {
+	// 	grid-area: "adm_nav";
+	// }
+
+	// .navigation {
+	// 	grid-area: "nav";
+	// }
+
+	// .sidebar {
+	// 	grid-area: "sb";
+	// }
+
+	// .sidebar, .navigation {
+	// 	@apply fixed top-0 bottom-0 overflow-y-scroll hide-scroll;
+	// }
+
+	.sidebar,
+	.navigation {
 		@apply fixed top-0 bottom-0 overflow-y-scroll hide-scroll;
-		width: $bar-width;
+		width: vars.$bar-width;
 		max-width: 350px;
 	}
-	> *:first-child {
-		@apply left-0 border-r border-r-gray-800;
+	.navigation {
+		@apply left-0 border-r border-r-gray-800 bg-gray-900;
 	}
-	> *:last-child {
-		@apply right-0 border-l border-l-gray-800;
+	.sidebar {
+		@apply right-0 border-l border-l-gray-800 bg-gray-900;
 	}
 
 	.center {
 		@apply min-h-screen p-layout;
-		margin: 0 $bar-width;
+		grid-area: "page";
+		margin: 0 vars.$bar-width;
 	}
 }

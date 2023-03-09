@@ -21,19 +21,19 @@
 		"incremental": true,
 		"baseUrl": "./src",
 		"paths": {
-			"@components/*": ["./app/components/*"],
-			"@ui/*": ["./app/components/ui/*"],
-			"@screens/*": ["./app/screens/*"],
+			"@ui/*": ["app/components/ui/*"],
+			"@components/*": ["app/components/*"],
+			"@screens/*": ["app/screens/*"],
 
-			"@hooks/*": ["./app/hooks/*"],
-			"@shared/*": ["./app/shared/*"],
-			"@store/*": ["./app/store/*"],
-			"@config/*": ["./app/config/*"],
-			"@services/*": ["./app/services/*"],
-			"@utils/*": ["./app/utils/*"],
-			"@assets/*": ["./app/assets/*"],
+			"@hooks/*": ["app/hooks/*"],
+			"@shared/*": ["app/shared/*"],
+			"@store/*": ["app/store/*"],
+			"@config/*": ["app/config/*"],
+			"@services/*": ["app/services/*"],
+			"@utils/*": ["app/utils/*"],
+			"@assets/*": ["app/assets/*"],
 
-			"@styles/*": ["./styles/*"]
+			"@styles/*": ["styles/*"]
 		}
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

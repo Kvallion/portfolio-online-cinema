@@ -16,7 +16,6 @@ const AuthItems: React.FC<AuthItemsProps> = () => {
 						link="/profile"
 						title="Profile"
 					/>
-					<LogoutButton />
 					{user.isAdmin && (
 						<MenuItem
 							icon="MdOutlineLock"
@@ -24,6 +23,7 @@ const AuthItems: React.FC<AuthItemsProps> = () => {
 							title="Admin panel"
 						/>
 					)}
+					<LogoutButton />
 				</>
 			) : (
 				<>

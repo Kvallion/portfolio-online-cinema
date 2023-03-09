@@ -20,7 +20,7 @@ export default function App({
 
 	return (
 		<MainProvider roleConfig={roleConfig}>
-			<Layout>
+			<Layout onlyAdmin={!!onlyAdmin}>
 				<Component {...pageProps} />
 			</Layout>
 		</MainProvider>
