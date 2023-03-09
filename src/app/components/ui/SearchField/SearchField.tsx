@@ -1,6 +1,6 @@
 import { ChangeEvent } from "react"
 import MaterialIcon from "@components/ui/MaterialIcon"
-import s from "../Search/Search.module.scss"
+import s from "./SearchField.module.scss"
 
 interface SearchFieldProps {
 	searchTerm: string

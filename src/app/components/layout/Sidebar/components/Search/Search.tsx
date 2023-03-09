@@ -1,5 +1,5 @@
-import { SearchField } from "@components/layout/Sidebar/components/SearchField"
 import { SearchPopupList } from "@components/layout/Sidebar/components/SearchPopupList"
+import { SearchField } from "@ui/SearchField"
 import s from "./Search.module.scss"
 import { useSearch } from "./useSearch"
 

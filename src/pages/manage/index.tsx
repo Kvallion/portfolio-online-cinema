@@ -1,4 +1,4 @@
-import { Admin } from "@screens/Admin"
+import { Admin } from "@screens/admin/home"
 import Meta from "@components/meta/Meta"
 import { NextPageAuth } from "@shared/types/roles.types"
 
