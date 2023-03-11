@@ -1,6 +1,6 @@
 import cn from "clsx"
 
-interface SubheadingProps {
+type SubheadingProps = {
 	text: string
 	className?: string
 }

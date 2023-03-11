@@ -5,7 +5,7 @@ import MaterialIcon from "@ui/MaterialIcon"
 import { MaterialIconName } from "@shared/types/icons.types"
 import s from "./MenuItem.module.scss"
 
-export interface MenuItemProps {
+export type MenuItemProps = {
 	icon: MaterialIconName
 	title: string
 	link: string

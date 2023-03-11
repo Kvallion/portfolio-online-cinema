@@ -1,7 +1,7 @@
 import cn from "clsx"
 import s from "./ButtonGroup.module.scss"
 
-interface ButtonGroupProps {
+type ButtonGroupProps = {
 	children: React.ReactNode[]
 	className?: string
 }

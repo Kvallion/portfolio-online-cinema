@@ -1,7 +1,7 @@
 import cn from "clsx"
 import s from "../AdminTable.module.scss"
 
-interface AdminTableHeaderProps {
+type AdminTableHeaderProps = {
 	columnNames: string[]
 }
 

@@ -1,6 +1,6 @@
 import s from "./FavoriteMovies.module.scss"
 
-interface FavoriteMoviesProps {}
+type FavoriteMoviesProps = {}
 
 const FavoriteMovies: React.FC<FavoriteMoviesProps> = () => {
 	return <div>FavoriteMovies</div>

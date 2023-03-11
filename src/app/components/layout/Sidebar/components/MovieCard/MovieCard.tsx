@@ -5,8 +5,10 @@ import { Movie } from "@shared/types/movie.types"
 import { getGenreUrl, getMovieUrl } from "@config/helpers/paths/singleEntity"
 import s from "./MovieCard.module.scss"
 
-interface MovieCardProps
-	extends Pick<Movie, "title" | "poster" | "slug" | "genres" | "rating"> {}
+type MovieCardProps = Pick<
+	Movie,
+	"title" | "poster" | "slug" | "genres" | "rating"
+> & {}
 
 const MovieCard: React.FC<MovieCardProps> = ({
 	title,

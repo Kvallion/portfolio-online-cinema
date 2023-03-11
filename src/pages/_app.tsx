@@ -4,7 +4,7 @@ import { Layout } from "@components/layout"
 import { RoleAccessConfig } from "@shared/types/roles.types"
 import "@styles/globals.scss"
 
-interface AppPropsRoleExtension {
+type AppPropsRoleExtension = {
 	Component: {
 		onlyUser?: boolean
 		onlyAdmin?: boolean

@@ -4,7 +4,7 @@ import { Movie } from "@shared/types/movie.types"
 import { MovieCard } from "../MovieCard"
 import s from "./MovieList.module.scss"
 
-interface MovieListProps {
+type MovieListProps = {
 	title: string
 	link: string
 	movies: Movie[]

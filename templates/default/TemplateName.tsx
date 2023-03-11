@@ -1,6 +1,6 @@
 import s from "./TemplateName.module.scss"
 
-interface TemplateNameProps {}
+type TemplateNameProps = {}
 
 const TemplateName: React.FC<TemplateNameProps> = () => {
 	return <div>TemplateName</div>

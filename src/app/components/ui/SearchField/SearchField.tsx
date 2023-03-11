@@ -2,7 +2,7 @@ import { ChangeEvent } from "react"
 import MaterialIcon from "@components/ui/MaterialIcon"
 import s from "./SearchField.module.scss"
 
-interface SearchFieldProps {
+type SearchFieldProps = {
 	searchTerm: string
 	handleSearch: (e: ChangeEvent<HTMLInputElement>) => void
 }

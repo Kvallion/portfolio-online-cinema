@@ -10,9 +10,7 @@ import { AuthForm } from "./auth.interface"
 import { AuthFields } from "./components/AuthFields"
 import { useAuthRedirect } from "./useAuthRedirect"
 
-interface AuthProps {}
-
-const Auth: React.FC<AuthProps> = () => {
+const Auth: React.FC = () => {
 	useAuthRedirect()
 	const { isLoading } = useAuth()
 	const [type, setType] = useState<"login" | "register">("login")

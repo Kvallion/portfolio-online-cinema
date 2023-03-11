@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import s from "./SearchPopupVariant.module.scss"
 
-interface SearchPopupVariantProps {
+type SearchPopupVariantProps = {
 	title: string
 	link: string
 	img: string

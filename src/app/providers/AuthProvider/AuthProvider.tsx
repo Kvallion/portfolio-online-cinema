@@ -9,7 +9,7 @@ import { HasRoleConfig, RoleAccessConfig } from "@shared/types/roles.types"
 
 const DynamicCheckRole = dynamic(() => import("./CheckRole"), { ssr: false })
 
-interface AuthProviderProps extends HasRoleConfig, HasChildren {}
+type AuthProviderProps = HasRoleConfig & HasChildren & {}
 
 const AuthProvider: React.FC<AuthProviderProps> = ({
 	roleConfig: { onlyAdmin, onlyUser },

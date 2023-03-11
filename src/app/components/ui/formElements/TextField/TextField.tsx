@@ -4,7 +4,7 @@ import { FieldError } from "react-hook-form"
 import { useLogger } from "@hooks/useLogger"
 import s from "./TextField.module.scss"
 
-interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
+type TextFieldProps = InputHTMLAttributes<HTMLInputElement> & {
 	placeholder: string
 	error?: FieldError
 	isPlaceholderLifted?: boolean

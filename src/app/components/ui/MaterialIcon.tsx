@@ -1,8 +1,7 @@
 import * as MaterialIcons from "react-icons/md"
-
 import { MaterialIconName } from "@shared/types/icons.types"
 
-interface MaterialIconProps {
+type MaterialIconProps = {
 	name: MaterialIconName
 	className?: string
 }

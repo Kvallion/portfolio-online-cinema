@@ -3,9 +3,7 @@ import { AdminHeader } from "@components/admin/AdminTable/AdminHeader"
 import Heading from "@ui/heading/Heading"
 import useUsers from "./useUsers"
 
-interface UserListScreenProps {}
-
-const UserListScreen: React.FC<UserListScreenProps> = () => {
+const UserListScreen: React.FC = () => {
 	const { data, handleSearch, isLoading, searchTerm, deleteAsync } =
 		useUsers()
 

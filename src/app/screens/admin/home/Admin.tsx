@@ -1,9 +1,7 @@
 import Heading from "@ui/heading/Heading"
 import { Statistics } from "./Statistics"
 
-interface AdminProps {}
-
-const Admin: React.FC<AdminProps> = () => {
+const Admin: React.FC = () => {
 	return (
 		<main>
 			<Heading text="Some statistics" />

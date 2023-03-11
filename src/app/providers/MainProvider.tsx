@@ -7,7 +7,7 @@ import AuthProvider from "./AuthProvider/AuthProvider"
 import HeadProvider from "./HeadProvider/HeadProvider"
 import ReduxToast from "./ReduxToast"
 
-interface MainProviderProps extends HasRoleConfig, HasChildren {}
+type MainProviderProps = HasRoleConfig & HasChildren & {}
 
 const queryClient = new QueryClient({
 	defaultOptions: {

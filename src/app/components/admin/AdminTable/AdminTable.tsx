@@ -4,7 +4,7 @@ import s from "./AdminTable.module.scss"
 import { AdminTableHeader } from "./AdminTableHeader"
 import { AdminTableItem } from "./AdminTableItem"
 
-interface AdminTableProps {
+type AdminTableProps = {
 	tableItems: TableItem[]
 	isLoading: boolean
 	headerItems: string[]

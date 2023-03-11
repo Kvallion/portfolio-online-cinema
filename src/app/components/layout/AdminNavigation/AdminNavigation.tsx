@@ -4,7 +4,7 @@ import { AdminNavItem } from "./AdminNavItem"
 import s from "./AdminNavigation.module.scss"
 import { navItems } from "./adminNavigation.data"
 
-interface AdminNavigationProps {}
+type AdminNavigationProps = {}
 
 const AdminNavigation: React.FC<AdminNavigationProps> = () => {
 	return (

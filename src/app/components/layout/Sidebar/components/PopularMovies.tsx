@@ -3,7 +3,7 @@ import SkeletonLoader from "@components/ui/SkeletonLoader"
 import { MovieService } from "@services/movie.service"
 import { MovieList } from "./MovieList"
 
-interface PopularMoviesProps {}
+type PopularMoviesProps = {}
 
 const PopularMovies: React.FC<PopularMoviesProps> = () => {
 	const { isLoading, data: popularMovies } = useQuery(

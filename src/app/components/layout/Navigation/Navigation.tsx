@@ -4,7 +4,7 @@ import s from "./Navigation.module.scss"
 import Logo from "./components/Logo"
 import { MenuContainer } from "./components/MenuContainer"
 
-interface NavigationProps {}
+type NavigationProps = {}
 
 const Navigation: React.FC<NavigationProps> = () => {
 	return (

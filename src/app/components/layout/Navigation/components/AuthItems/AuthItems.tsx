@@ -3,7 +3,7 @@ import { useAuth } from "@hooks/useAuth"
 import { adminHomeUrl } from "@config/helpers/paths/api"
 import { LogoutButton } from "../LogoutButton"
 
-interface AuthItemsProps {}
+type AuthItemsProps = {}
 
 const AuthItems: React.FC<AuthItemsProps> = () => {
 	const { user } = useAuth()

@@ -3,7 +3,7 @@ import s from "./Layout.module.scss"
 import { Navigation } from "./Navigation"
 import { Sidebar } from "./Sidebar"
 
-interface LayoutProps {
+type LayoutProps = {
 	children: React.ReactNode
 	onlyAdmin: boolean
 }

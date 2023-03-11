@@ -2,11 +2,10 @@ import {
 	MenuItem,
 	MenuItemProps,
 } from "@components/layout/Navigation/components/MenuItem"
-
 import { AuthItems } from "../AuthItems"
 import s from "./Menu.module.scss"
 
-export interface MenuProps {
+export type MenuProps = {
 	title: string
 	items: MenuItemProps[]
 }

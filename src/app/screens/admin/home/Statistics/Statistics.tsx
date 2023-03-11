@@ -2,9 +2,7 @@ import { CountUsers } from "./CountUsers"
 import { PopularMovie } from "./PopularMovie"
 import s from "./Statistics.module.scss"
 
-interface StatisticsProps {}
-
-const Statistics: React.FC<StatisticsProps> = () => {
+const Statistics: React.FC = () => {
 	return (
 		<section className={s.statistics}>
 			<CountUsers />

@@ -4,7 +4,7 @@ import { TextField } from "@components/ui/formElements/TextField"
 import { strongPassword, validEmail } from "@shared/regex"
 import s from "./AuthFields.module.scss"
 
-interface AuthFieldsProps {
+type AuthFieldsProps = {
 	register: UseFormRegister<AuthForm>
 	formState: FormState<AuthForm>
 	isPasswordRequired?: boolean

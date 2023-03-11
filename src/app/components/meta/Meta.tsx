@@ -1,14 +1,11 @@
 import Head from "next/head"
 import { useRouter } from "next/router"
-
 import { clearText } from "@utils/string/clearText"
-
 import { mergeTitle } from "@config/helpers/seo.helpers"
 import { siteName } from "@config/seo.config"
-
 import logoImage from "@assets/images/logo.svg"
 
-interface MetaProps {
+type MetaProps = {
 	title: string
 	description?: string
 	image?: string

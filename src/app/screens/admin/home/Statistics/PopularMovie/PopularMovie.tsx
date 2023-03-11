@@ -8,9 +8,7 @@ import { MovieService } from "@services/movie.service"
 import { getMovieUrl } from "@config/helpers/paths/singleEntity"
 import s from "../Statistics.module.scss"
 
-interface PopularMovieProps {}
-
-const PopularMovie: React.FC<PopularMovieProps> = () => {
+const PopularMovie: React.FC = () => {
 	const { isLoading, data: movie } = useQuery(
 		"Most popular movie in admin",
 		() => MovieService.getMostPopularMovies(),

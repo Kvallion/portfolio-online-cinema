@@ -3,7 +3,7 @@ import { SearchField } from "@ui/SearchField"
 import { AdminCreateButton } from "./AdminCreateButton"
 import s from "./AdminHeader.module.scss"
 
-interface AdminHeaderProps {
+type AdminHeaderProps = {
 	onClick?: () => void
 	searchTerm: string
 	handleSearch: (e: ChangeEvent<HTMLInputElement>) => void

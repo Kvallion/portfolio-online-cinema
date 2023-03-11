@@ -4,7 +4,7 @@ import { useLogger } from "@hooks/useLogger"
 import { HasChildren } from "@shared/types/components.utility.types"
 import { RoleAccessConfig } from "@shared/types/roles.types"
 
-interface CheckRoleProps extends HasChildren {
+type CheckRoleProps = HasChildren & {
 	roleConfig: RoleAccessConfig
 }
 

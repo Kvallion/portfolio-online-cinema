@@ -1,10 +1,8 @@
 import { Menu } from "@components/layout/Navigation/components/Menu"
-
 import SkeletonLoader from "@ui/SkeletonLoader"
-
 import { usePopularGenres } from "./usePopularGenres"
 
-interface GenreMenuProps {}
+type GenreMenuProps = {}
 
 const GenreMenu: React.FC<GenreMenuProps> = () => {
 	const { isLoading, data } = usePopularGenres()

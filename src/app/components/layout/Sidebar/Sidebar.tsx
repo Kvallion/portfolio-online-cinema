@@ -4,7 +4,7 @@ import s from "./Sidebar.module.scss"
 import { MoviesContainer } from "./components/MoviesContainer"
 import { Search } from "./components/Search"
 
-interface SidebarProps {}
+type SidebarProps = {}
 
 const Sidebar: React.FC<SidebarProps> = () => {
 	return (

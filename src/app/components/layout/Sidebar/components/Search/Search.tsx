@@ -3,7 +3,7 @@ import { SearchField } from "@ui/SearchField"
 import s from "./Search.module.scss"
 import { useSearch } from "./useSearch"
 
-interface SearchProps {}
+type SearchProps = {}
 
 const Search: React.FC<SearchProps> = () => {
 	const { isSuccess, searchTerm, handleSearch, data } = useSearch()

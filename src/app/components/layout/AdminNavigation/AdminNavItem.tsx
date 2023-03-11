@@ -5,7 +5,7 @@ import MaterialIcon from "@ui/MaterialIcon"
 import { MaterialIconName } from "@shared/types/icons.types"
 import s from "./AdminNavigation.module.scss"
 
-export interface AdminNavItemProps {
+export type AdminNavItemProps = {
 	icon: MaterialIconName
 	title: string
 	link: string

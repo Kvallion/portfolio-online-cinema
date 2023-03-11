@@ -1,6 +1,6 @@
 import { Button } from "@ui/formElements/Button"
 
-interface AdminCreateButtonProps {
+type AdminCreateButtonProps = {
 	onClick: () => void
 }
 

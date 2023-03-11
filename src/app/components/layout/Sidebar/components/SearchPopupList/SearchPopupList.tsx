@@ -2,7 +2,7 @@ import { SearchPopupVariant } from "@components/layout/Sidebar/components/Search
 import { Movie } from "@shared/types/movie.types"
 import s from "../Search/Search.module.scss"
 
-interface SearchPopupListProps {
+type SearchPopupListProps = {
 	movies: Movie[]
 }
 

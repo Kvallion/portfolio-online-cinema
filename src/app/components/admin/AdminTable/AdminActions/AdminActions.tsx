@@ -2,7 +2,7 @@ import { useRouter } from "next/router"
 import MaterialIcon from "@ui/MaterialIcon"
 import s from "./AdminActions.module.scss"
 
-interface AdminActionsProps {
+type AdminActionsProps = {
 	editUrl: string
 	removeHandler: (...args: any[]) => void
 }

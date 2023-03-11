@@ -2,10 +2,10 @@ import cn from "clsx"
 import { MenuItem, MenuItemProps } from "../MenuItem"
 import s from "./MenuItemButton.module.scss"
 
-interface MenuItemButtonProps extends MenuItemProps {
+type MenuItemButtonProps = {
 	onClick: (...args: any) => any
 	className?: string
-}
+} & MenuItemProps
 
 const MenuItemButton: React.FC<MenuItemButtonProps> = ({
 	onClick,

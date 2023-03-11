@@ -1,1 +1,1 @@
-export interface TemplateNameProps {}
+export type TemplateNameProps = {}

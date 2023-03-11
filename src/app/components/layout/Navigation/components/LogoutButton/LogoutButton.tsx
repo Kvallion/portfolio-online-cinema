@@ -2,7 +2,7 @@ import { Button } from "@components/ui/formElements/Button"
 import { useActions } from "@hooks/useActions"
 import { MenuItemButton } from "../MenuItemButton"
 
-interface LogoutButtonProps {}
+type LogoutButtonProps = {}
 
 const LogoutButton: React.FC<LogoutButtonProps> = () => {
 	const { logout } = useActions()
