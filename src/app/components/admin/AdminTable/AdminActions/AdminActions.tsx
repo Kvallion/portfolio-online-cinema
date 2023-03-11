@@ -14,11 +14,11 @@ const AdminActions: React.FC<AdminActionsProps> = ({
 	const { push } = useRouter()
 	return (
 		<td className={s.acitons}>
-			<button onClick={() => push(editUrl)}>
+			<button onClick={() => push(editUrl)} className={s.button}>
 				<MaterialIcon name="MdEdit" />
 			</button>
-			<button onClick={removeHandler}>
-				<MaterialIcon name="MdDelete" />
+			<button onClick={removeHandler} className={s.button}>
+				<MaterialIcon name="MdDelete" className="text-primary" />
 			</button>
 		</td>
 	)

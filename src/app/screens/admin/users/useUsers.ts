@@ -17,9 +17,9 @@ export default function useUsers() {
 		{
 			select: ({ data }) =>
 				data.map(
-					({ _id, email, created_at }): AdminTableRow => ({
+					({ _id, email, createdAt }): AdminTableRow => ({
 						_id,
-						cells: [email, convertMongoDbDate(created_at)],
+						cells: [email, convertMongoDbDate(createdAt)],
 						editUrl: getAdminUrl(`/users/edit/${_id}`),
 					})
 				),

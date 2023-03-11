@@ -9,13 +9,9 @@ const UserListScreen: React.FC = () => {
 
 	return (
 		<div>
-			<Heading text="Users" />
+			<Heading text="Users" className="mb-4" />
 
-			<AdminHeader
-				onClick={() => {}}
-				handleSearch={handleSearch}
-				searchTerm={searchTerm}
-			/>
+			<AdminHeader handleSearch={handleSearch} searchTerm={searchTerm} />
 			<AdminTable
 				isLoading={isLoading}
 				removeHandler={deleteAsync}
