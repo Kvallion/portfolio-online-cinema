@@ -1,39 +1,41 @@
 import SkeletonLoader from "@ui/SkeletonLoader"
-import { TableItem } from "./AdminTable.interface"
 import s from "./AdminTable.module.scss"
+import { AdminTableRow as IAdminTableRow } from "./AdminTable.type"
 import { AdminTableHeader } from "./AdminTableHeader"
-import { AdminTableItem } from "./AdminTableItem"
+import { AdminTableRow } from "./AdminTableRow"
 
 type AdminTableProps = {
-	tableItems: TableItem[]
+	rows: IAdminTableRow[]
 	isLoading: boolean
 	headerItems: string[]
 	removeHandler: (id: string) => void
 }
 
 const AdminTable: React.FC<AdminTableProps> = ({
-	tableItems,
+	rows,
 	headerItems,
 	isLoading,
 	removeHandler,
 }) => {
 	return (
-		<div>
+		<table className="block">
 			<AdminTableHeader columnNames={headerItems} />
-			{isLoading ? (
-				<SkeletonLoader count={1} height={48} className="mt-4" />
-			) : tableItems.length ? (
-				tableItems.map((item) => (
-					<AdminTableItem
-						key={item._id}
-						removeHandler={() => removeHandler(item._id)}
-						tableItem={item}
-					/>
-				))
-			) : (
-				<div className={s.not_found}>Elements not found </div>
-			)}
-		</div>
+			<tbody className="block">
+				{isLoading ? (
+					<SkeletonLoader count={1} height={48} className="mt-4" />
+				) : rows.length ? (
+					rows.map((row) => (
+						<AdminTableRow
+							key={row._id}
+							removeHandler={() => removeHandler(row._id)}
+							row={row}
+						/>
+					))
+				) : (
+					<div className={s.not_found}>Elements not found </div>
+				)}
+			</tbody>
+		</table>
 	)
 }
 

@@ -1,9 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
-
 import logoImg from "@assets/images/logo.svg"
 
-interface LogoProps {}
+type LogoProps = {}
 
 const Logo: React.FC<LogoProps> = () => {
 	return (

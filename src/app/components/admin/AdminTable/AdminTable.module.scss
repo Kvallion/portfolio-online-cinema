@@ -1,8 +1,9 @@
-.item {
-	@apply flex items-center justify-between bg-gray-700 bg-opacity-20 mt-4 px-5 rounded-lg transition-colors hover:bg-opacity-50;
+.row {
+	@apply block flex items-center justify-between bg-gray-700 bg-opacity-20 mt-4 px-5 rounded-lg text-left transition-colors hover:bg-opacity-50;
 
-	> div {
-		@apply text-white text-opacity-80 py-3;
+	> td,
+	th {
+		@apply block text-white text-opacity-80 py-3;
 		width: 24%;
 
 		&:last-child {
@@ -11,11 +12,11 @@
 	}
 }
 
-.itemHeader {
-	@apply bg-primary bg-opacity-20 shadow-lg mt-8 hover:opacity-20;
+.header_row {
+	@apply bg-primary shadow-lg mt-8 bg-opacity-20 hover:bg-opacity-30;
 
-	> div {
-		@apply text-opacity-90 font-semibold py-2.5;
+	> th {
+		@apply block text-opacity-90 font-semibold py-2.5;
 	}
 }
 

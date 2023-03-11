@@ -20,7 +20,7 @@ const UserListScreen: React.FC = () => {
 				isLoading={isLoading}
 				removeHandler={deleteAsync}
 				headerItems={["Email", "Registration date"]}
-				tableItems={data || []}
+				rows={data || []}
 			/>
 		</div>
 	)

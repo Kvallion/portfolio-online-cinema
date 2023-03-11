@@ -7,12 +7,14 @@ type AdminTableHeaderProps = {
 
 const AdminTableHeader: React.FC<AdminTableHeaderProps> = ({ columnNames }) => {
 	return (
-		<div className={cn(s.item, s.item_header)}>
-			{columnNames.map((name) => (
-				<div key={name}>{name}</div>
-			))}
-			<div>Actions</div>
-		</div>
+		<thead className="block">
+			<tr className={cn(s.row, s.header_row)}>
+				{columnNames.map((name) => (
+					<th key={name}>{name}</th>
+				))}
+				<th>Actions</th>
+			</tr>
+		</thead>
 	)
 }
 

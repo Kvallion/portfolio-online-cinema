@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react"
 import { useMutation, useQuery } from "react-query"
 import { toastr } from "react-redux-toastr"
-import { TableItem } from "@components/admin/AdminTable/AdminTable.interface"
+import { AdminTableRow } from "@components/admin/AdminTable/AdminTable.type"
 import { useDebounce } from "@hooks/useDebounce"
 import { UserService } from "@services/user.service"
 import convertMongoDbDate from "@utils/date/convertMongoDbDate"
@@ -17,9 +17,9 @@ export default function useUsers() {
 		{
 			select: ({ data }) =>
 				data.map(
-					({ _id, email, created_at }): TableItem => ({
+					({ _id, email, created_at }): AdminTableRow => ({
 						_id,
-						items: [email, convertMongoDbDate(created_at)],
+						cells: [email, convertMongoDbDate(created_at)],
 						editUrl: getAdminUrl(`/users/edit/${_id}`),
 					})
 				),

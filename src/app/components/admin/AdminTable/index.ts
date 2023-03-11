@@ -1,2 +1,2 @@
 export * from "./AdminTable"
-export * from "./AdminTableItem"
+export * from "./AdminTableRow"
