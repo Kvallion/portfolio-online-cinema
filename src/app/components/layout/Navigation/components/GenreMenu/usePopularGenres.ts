@@ -1,9 +1,6 @@
 import { useQuery } from "react-query"
-
 import { MenuItemProps } from "@components/layout/Navigation/components/MenuItem"
-
 import { genreService } from "@services/genre.service"
-
 import { getGenreUrl } from "@config/helpers/paths/singleEntity"
 
 export function usePopularGenres(limit: number = 4) {

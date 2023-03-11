@@ -1,7 +1,5 @@
 import { Inter } from "next/font/google"
-
 import { Home } from "@screens/Home"
-
 import Meta from "@components/meta/Meta"
 
 const inter = Inter({ subsets: ["latin"] })

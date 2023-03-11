@@ -5,10 +5,10 @@
 }
 
 .nav {
-	@apply fixed top-0 bg-gray-900 border-b border-gray-800;
-	width: calc(100% - 2 * vars.$bar-width);
+	@apply fixed top-0 border-b border-gray-800 bg-gray-900;
 	margin-right: vars.$bar-width;
 	margin-left: vars.$bar-width;
+	width: calc(100% - 2 * vars.$bar-width);
 }
 
 .list {
@@ -22,10 +22,10 @@
 		// }
 
 		.link {
-			@apply block relative flex items-center justify-center px-5 py-4 text-lg transition-colors text-white text-center text-opacity-60 hover:text-opacity-100;
+			@apply relative block flex items-center justify-center px-5 py-4 text-center text-lg text-white text-opacity-60 transition-colors hover:text-opacity-100;
 
 			&::after {
-				@apply absolute w-full h-0.5 bg-transparent transition-colors left-0 bottom-0 rounded-md;
+				@apply absolute left-0 bottom-0 h-0.5 w-full rounded-md bg-transparent transition-colors;
 				content: "";
 			}
 		}
@@ -37,7 +37,7 @@
 		}
 
 		.icon {
-			@apply text-2lg mr-3;
+			@apply mr-3 text-2lg;
 		}
 	}
 }

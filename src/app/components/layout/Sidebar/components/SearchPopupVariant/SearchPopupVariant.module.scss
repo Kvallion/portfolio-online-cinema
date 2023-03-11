@@ -1,19 +1,19 @@
 .link {
-	@apply block my-3;
+	@apply my-3 block;
 }
 
 .card {
-	@apply flex items-center px-4 relative;
+	@apply relative flex items-center px-4;
 
 	&::after {
 		@apply absolute -right-0.5 h-0 w-0.5 bg-transparent;
-		content: "";
 		top: 28%;
 		transition: height 0.3s, background-color 0.3s;
 		transition-timing-function: ease-in-out;
+		content: "";
 	}
 	&:hover::after {
-		@apply bg-primary h-2/5;
+		@apply h-2/5 bg-primary;
 	}
 
 	.img {
@@ -22,7 +22,7 @@
 	}
 
 	.text {
-		@apply ml-3 text-white truncate;
+		@apply ml-3 truncate text-white;
 
 		&:last-child {
 			width: 70%;

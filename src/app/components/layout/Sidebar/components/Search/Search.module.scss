@@ -3,10 +3,10 @@
 }
 
 .list {
-	@apply absolute z-10 border border-gray-700 rounded-layout bg-gray-800 w-full animate-fade;
+	@apply absolute z-10 w-full animate-fade rounded-layout border border-gray-700 bg-gray-800;
 	// top: calc(100% + 15px);
 
 	.empty_list {
-		@apply text-white text-center my-4;
+		@apply my-4 text-center text-white;
 	}
 }

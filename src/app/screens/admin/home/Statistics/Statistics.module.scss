@@ -1,5 +1,5 @@
 .statistics {
-	@apply flex items-stretch mt-10;
+	@apply mt-10 flex items-stretch;
 }
 
 .block {
@@ -10,16 +10,16 @@
 	@apply mr-28 flex items-center justify-center text-center;
 
 	.count {
-		@apply text-7xl mb-1 font-medium;
+		@apply mb-1 text-7xl font-medium;
 	}
 
 	.description {
-		@apply opacity-70 text-lg;
+		@apply text-lg opacity-70;
 	}
 }
 
 .popular {
-	@apply text-center p-5;
+	@apply p-5 text-center;
 
 	.poster {
 		@apply rounded-layout shadow-lg image-like-bg;
@@ -32,6 +32,6 @@
 	}
 
 	.opened_count {
-		@apply opacity-50 font-medium mb-3;
+		@apply mb-3 font-medium opacity-50;
 	}
 }
