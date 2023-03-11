@@ -1,7 +1,11 @@
-type TemplateNameProps = {}
+import Heading from "@ui/heading/Heading"
 
-const TemplateName: React.FC<TemplateNameProps> = () => {
-	return <main>TemplateName</main>
+const TemplateName: React.FC = () => {
+	return (
+		<main>
+			<Heading text="TemplateName" />
+		</main>
+	)
 }
 
 export { TemplateName }

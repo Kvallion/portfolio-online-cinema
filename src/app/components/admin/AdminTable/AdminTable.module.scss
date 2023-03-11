@@ -1,5 +1,5 @@
 .row {
-	@apply block flex items-center justify-between bg-gray-700 bg-opacity-20 mt-4 px-5 rounded-lg text-left transition-colors hover:bg-opacity-50;
+	@apply block flex items-center justify-between gap-4 bg-gray-700 bg-opacity-20 mt-4 px-5 rounded-lg text-left transition-colors hover:bg-opacity-50;
 
 	> td,
 	th {

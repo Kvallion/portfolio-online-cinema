@@ -3,28 +3,28 @@ import { useMutation, useQuery } from "react-query"
 import { toastr } from "react-redux-toastr"
 import { AdminTableRow } from "@components/admin/AdminTable/AdminTable.type"
 import { useDebounce } from "@hooks/useDebounce"
-import { UserService } from "@services/user.service"
+import { ActorService } from "@services/actor.service"
 import convertMongoDbDate from "@utils/date/convertMongoDbDate"
 import { toastError } from "@utils/toastError"
 import { getAdminUrl } from "@config/helpers/paths/api"
 
-export default function useUsers() {
+export default function useActors() {
 	const [searchTerm, setSearchTerm] = useState("")
 	const debouncedSearch = useDebounce(searchTerm, 500)
 	const queryData = useQuery(
-		["admin panel user list", debouncedSearch],
-		() => UserService.getAll(debouncedSearch),
+		["admin panel actor list", debouncedSearch],
+		() => ActorService.getAll(debouncedSearch),
 		{
 			select: ({ data }) =>
 				data.map(
-					({ _id, email, createdAt }): AdminTableRow => ({
+					({ _id, name, slug }): AdminTableRow => ({
 						_id,
-						cells: [email, convertMongoDbDate(createdAt)],
-						editUrl: getAdminUrl(`/users/edit/${_id}`),
+						cells: [name, slug],
+						editUrl: getAdminUrl(`/actors/edit/${_id}`),
 					})
 				),
 			onError(error) {
-				toastError(error, "User list")
+				toastError(error, "Actor list")
 			},
 		}
 	)
@@ -33,12 +33,12 @@ export default function useUsers() {
 		setSearchTerm(e.target.value)
 
 	const { mutateAsync: deleteAsync } = useMutation(
-		"delete user",
-		(userId: string) => UserService.deleteUser(userId),
+		"delete actor",
+		(actorId: string) => ActorService.deleteActor(actorId),
 		{
-			onError: (err) => toastError(err, "Delete a user"),
+			onError: (err) => toastError(err, "Delete an actor"),
 			onSuccess: () => {
-				toastr.success("Delete a user", "Deleted successfully")
+				toastr.success("Delete an actor", "Deleted successfully")
 				queryData.refetch()
 			},
 		}

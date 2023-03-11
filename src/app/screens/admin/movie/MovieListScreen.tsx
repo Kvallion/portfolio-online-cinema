@@ -1,25 +1,25 @@
 import { AdminTable } from "@components/admin/AdminTable"
 import { AdminHeader } from "@components/admin/AdminTable/AdminHeader"
 import Heading from "@ui/heading/Heading"
-import useUsers from "./useUsers"
+import useMovies from "./useMovies"
 
-const UserListScreen: React.FC = () => {
+const MovieListScreen: React.FC = () => {
 	const { data, handleSearch, isLoading, searchTerm, deleteAsync } =
-		useUsers()
+		useMovies()
 
 	return (
 		<main>
-			<Heading text="Users" className="mb-4" />
+			<Heading text="Movies" className="mb-4" />
 
 			<AdminHeader handleSearch={handleSearch} searchTerm={searchTerm} />
 			<AdminTable
 				isLoading={isLoading}
 				removeHandler={deleteAsync}
-				headerItems={["Email", "Registration date"]}
+				headerItems={["Title", "Genres", "Rating"]}
 				rows={data || []}
 			/>
 		</main>
 	)
 }
 
-export default UserListScreen
+export default MovieListScreen

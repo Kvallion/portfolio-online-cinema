@@ -1,6 +1,6 @@
 import { Movie } from "@shared/types/movie.types"
 import { getMoviesUrl } from "@config/helpers/paths/api"
-import { axiosPublic } from "./api/interceptors"
+import { axiosPrivate, axiosPublic } from "./api/interceptors"
 
 export const MovieService = {
 	async getAll(searchTerm?: string) {
@@ -13,5 +13,8 @@ export const MovieService = {
 			getMoviesUrl("/most-popular")
 		)
 		return data
+	},
+	async deleteMovie(id: string) {
+		return axiosPrivate.delete<string>(getMoviesUrl(`/${id}`))
 	},
 }

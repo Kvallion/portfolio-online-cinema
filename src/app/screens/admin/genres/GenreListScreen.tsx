@@ -1,25 +1,25 @@
 import { AdminTable } from "@components/admin/AdminTable"
 import { AdminHeader } from "@components/admin/AdminTable/AdminHeader"
 import Heading from "@ui/heading/Heading"
-import useUsers from "./useUsers"
+import useGenres from "./useGenres"
 
-const UserListScreen: React.FC = () => {
+const GenreListScreen: React.FC = () => {
 	const { data, handleSearch, isLoading, searchTerm, deleteAsync } =
-		useUsers()
+		useGenres()
 
 	return (
 		<main>
-			<Heading text="Users" className="mb-4" />
+			<Heading text="Genres" className="mb-4" />
 
 			<AdminHeader handleSearch={handleSearch} searchTerm={searchTerm} />
 			<AdminTable
 				isLoading={isLoading}
 				removeHandler={deleteAsync}
-				headerItems={["Email", "Registration date"]}
+				headerItems={["Name", "Slug"]}
 				rows={data || []}
 			/>
 		</main>
 	)
 }
 
-export default UserListScreen
+export default GenreListScreen
