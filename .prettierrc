@@ -24,7 +24,7 @@
 		"^@styles/(.*)$",
 		"^(.*)css$"
 	],
-	"importOrderSeparation": false,
+	"importOrderSeparation": true,
 	"importOrderSortSpecifiers": true,
 	"order": "concentric-css"
 }

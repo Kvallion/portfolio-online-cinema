@@ -4,7 +4,7 @@ import { FieldError } from "react-hook-form"
 import { useLogger } from "@hooks/useLogger"
 import s from "./TextField.module.scss"
 
-type TextFieldProps = InputHTMLAttributes<HTMLInputElement> & {
+export type TextFieldProps = InputHTMLAttributes<HTMLInputElement> & {
 	placeholder: string
 	error?: FieldError
 	isPlaceholderLifted?: boolean
@@ -25,7 +25,7 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 		ref
 	) => {
 		return (
-			<div className={cn(s.wrapper, className)}>
+			<div className={cn(className, s.wrapper)}>
 				<div className={s.field} style={style}>
 					<label className={s.label}>
 						<span

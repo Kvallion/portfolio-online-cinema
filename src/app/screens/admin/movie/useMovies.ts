@@ -1,10 +1,16 @@
+import { useRouter } from "next/router"
 import { useMemo, useState } from "react"
 import { useMutation, useQuery } from "react-query"
 import { toastr } from "react-redux-toastr"
+
 import { AdminTableRow } from "@components/admin/AdminTable/AdminTable.type"
+
 import { useDebounce } from "@hooks/useDebounce"
+
 import { MovieService } from "@services/movie.service"
+
 import { toastError } from "@utils/toastError"
+
 import { getAdminUrl } from "@config/helpers/paths/api"
 
 export default function useMovies() {
@@ -47,8 +53,28 @@ export default function useMovies() {
 		}
 	)
 
+	const { push } = useRouter()
+	const { mutateAsync: createAsync } = useMutation(
+		"create movie",
+		() => MovieService.create(),
+		{
+			onError: (err) => toastError(err, "Create a movie"),
+			onSuccess: ({ data: id }) => {
+				toastr.success("Create a movie", "Created successfully")
+				push(getAdminUrl(`/movies/edit/${id}`))
+				queryData.refetch()
+			},
+		}
+	)
+
 	return useMemo(
-		() => ({ handleSearch, ...queryData, searchTerm, deleteAsync }),
-		[queryData, searchTerm, deleteAsync]
+		() => ({
+			handleSearch,
+			...queryData,
+			searchTerm,
+			deleteAsync,
+			createAsync,
+		}),
+		[queryData, searchTerm, deleteAsync, createAsync]
 	)
 }

@@ -18,24 +18,31 @@ const AdminTable: React.FC<AdminTableProps> = ({
 	removeHandler,
 }) => {
 	return (
-		<table className="block">
-			<AdminTableHeader columnNames={headerItems} />
-			<tbody className="block">
-				{isLoading ? (
-					<SkeletonLoader count={1} height={48} className="mt-4" />
-				) : rows.length ? (
-					rows.map((row) => (
-						<AdminTableRow
-							key={row._id}
-							removeHandler={() => removeHandler(row._id)}
-							row={row}
-						/>
-					))
-				) : (
-					<div className={s.not_found}>Elements not found </div>
-				)}
-			</tbody>
-		</table>
+		<>
+			<table className="block">
+				<AdminTableHeader columnNames={headerItems} />
+
+				{!isLoading &&
+					(rows.length ? (
+						<tbody className="block">
+							{rows.map((row) => (
+								<AdminTableRow
+									key={row._id}
+									removeHandler={() => removeHandler(row._id)}
+									row={row}
+								/>
+							))}
+						</tbody>
+					) : (
+						<tbody className={s.not_found}>
+							Elements not found{" "}
+						</tbody>
+					))}
+			</table>
+			{isLoading && (
+				<SkeletonLoader count={4} height={48} className="mt-4" />
+			)}
+		</>
 	)
 }
 

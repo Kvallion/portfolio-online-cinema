@@ -1,0 +1,29 @@
+.error {
+	@apply absolute -bottom-6 left-0 w-full text-sm text-primary;
+}
+
+.placeholder {
+	@apply block text-xs uppercase text-gray-600;
+}
+
+.editor_wrapper {
+	@apply border-0;
+
+	.wrapper {
+		.editor {
+			@apply h-96 overflow-hidden rounded-b-lg border border-gray-700 px-4 text-gray-500;
+		}
+
+		.toolbar {
+			@apply mt-4 mb-0 rounded-t-lg rounded-b-none bg-gray-600 bg-opacity-40 p-3 outline-border-none;
+
+			> div {
+				@apply m-0;
+
+				> div {
+					@apply mx-1.5 bg-gray-500 shadow-none transition-colors outline-border-none hover:bg-gray-300;
+				}
+			}
+		}
+	}
+}

@@ -1,17 +1,29 @@
+import { AdminHeader } from "@components/admin/AdminHeader"
 import { AdminTable } from "@components/admin/AdminTable"
-import { AdminHeader } from "@components/admin/AdminTable/AdminHeader"
+
 import Heading from "@ui/heading/Heading"
+
 import useMovies from "./useMovies"
 
 const MovieListScreen: React.FC = () => {
-	const { data, handleSearch, isLoading, searchTerm, deleteAsync } =
-		useMovies()
+	const {
+		data,
+		handleSearch,
+		isLoading,
+		searchTerm,
+		deleteAsync,
+		createAsync,
+	} = useMovies()
 
 	return (
 		<main>
 			<Heading text="Movies" className="mb-4" />
 
-			<AdminHeader handleSearch={handleSearch} searchTerm={searchTerm} />
+			<AdminHeader
+				handleSearch={handleSearch}
+				searchTerm={searchTerm}
+				onClick={createAsync}
+			/>
 			<AdminTable
 				isLoading={isLoading}
 				removeHandler={deleteAsync}

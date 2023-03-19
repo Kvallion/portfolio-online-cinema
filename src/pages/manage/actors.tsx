@@ -4,7 +4,7 @@ import { NextPageAuth } from "@shared/types/roles.types"
 
 const ActorListPage: NextPageAuth = () => {
 	return (
-		<Meta title="Admin panel | movies">
+		<Meta title="Actors | Admin panel">
 			<ActorListScreen />
 		</Meta>
 	)

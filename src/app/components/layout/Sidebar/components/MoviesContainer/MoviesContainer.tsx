@@ -8,7 +8,7 @@ const MoviesContainer: React.FC<MoviesContainerProps> = () => {
 	return (
 		<section>
 			<PopularMovies />
-			<FavoriteMovies />
+			{/* <FavoriteMovies /> */}
 		</section>
 	)
 }

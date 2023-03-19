@@ -1,11 +1,17 @@
+import { useRouter } from "next/router"
 import { useMemo, useState } from "react"
 import { useMutation, useQuery } from "react-query"
 import { toastr } from "react-redux-toastr"
+
 import { AdminTableRow } from "@components/admin/AdminTable/AdminTable.type"
+
 import { useDebounce } from "@hooks/useDebounce"
+
 import { ActorService } from "@services/actor.service"
+
 import convertMongoDbDate from "@utils/date/convertMongoDbDate"
 import { toastError } from "@utils/toastError"
+
 import { getAdminUrl } from "@config/helpers/paths/api"
 
 export default function useActors() {
@@ -44,8 +50,28 @@ export default function useActors() {
 		}
 	)
 
+	const { push } = useRouter()
+	const { mutateAsync: createAsync } = useMutation(
+		"create actor",
+		() => ActorService.create(),
+		{
+			onError: (err) => toastError(err, "Create an actor"),
+			onSuccess: ({ data: id }) => {
+				toastr.success("Create an actor", "Created successfully")
+				push(getAdminUrl(`/actors/edit/${id}`))
+				queryData.refetch()
+			},
+		}
+	)
+
 	return useMemo(
-		() => ({ handleSearch, ...queryData, searchTerm, deleteAsync }),
-		[queryData, searchTerm, deleteAsync]
+		() => ({
+			handleSearch,
+			...queryData,
+			searchTerm,
+			deleteAsync,
+			createAsync,
+		}),
+		[queryData, searchTerm, deleteAsync, createAsync]
 	)
 }

@@ -1,12 +1,17 @@
+import { useRouter } from "next/router"
 import { useMemo, useState } from "react"
 import { useMutation, useQuery } from "react-query"
 import { toastr } from "react-redux-toastr"
+
 import { AdminTableRow } from "@components/admin/AdminTable/AdminTable.type"
+
 import { useDebounce } from "@hooks/useDebounce"
+
 import { GenreService } from "@services/genre.service"
-import convertMongoDbDate from "@utils/date/convertMongoDbDate"
+
 import { toastError } from "@utils/toastError"
-import { getAdminUrl } from "@config/helpers/paths/api"
+
+import { getAdminUrl, getGenresUrl } from "@config/helpers/paths/api"
 
 export default function useGenres() {
 	const [searchTerm, setSearchTerm] = useState("")
@@ -20,7 +25,7 @@ export default function useGenres() {
 					({ _id, name, slug }): AdminTableRow => ({
 						_id,
 						cells: [name, slug],
-						editUrl: getAdminUrl(`/genres/edit/${_id}`),
+						editUrl: getAdminUrl(`/genre/edit/${_id}`),
 					})
 				),
 			onError(error) {
@@ -34,7 +39,7 @@ export default function useGenres() {
 
 	const { mutateAsync: deleteAsync } = useMutation(
 		"delete genre",
-		(genreId: string) => GenreService.deleteGenre(genreId),
+		(genreId: string) => GenreService.delete(genreId),
 		{
 			onError: (err) => toastError(err, "Delete a genre"),
 			onSuccess: () => {
@@ -43,9 +48,29 @@ export default function useGenres() {
 			},
 		}
 	)
+	const { push } = useRouter()
+
+	const { mutateAsync: createAsync } = useMutation(
+		"create genre",
+		() => GenreService.create(),
+		{
+			onError: (err) => toastError(err, "Create a genre"),
+			onSuccess: ({ data: id }) => {
+				toastr.success("Create a genre", "Created successfully")
+				push(getAdminUrl(`/genre/edit/${id}`))
+				queryData.refetch()
+			},
+		}
+	)
 
 	return useMemo(
-		() => ({ handleSearch, ...queryData, searchTerm, deleteAsync }),
-		[queryData, searchTerm, deleteAsync]
+		() => ({
+			handleSearch,
+			...queryData,
+			searchTerm,
+			deleteAsync,
+			createAsync,
+		}),
+		[queryData, searchTerm, deleteAsync, createAsync]
 	)
 }

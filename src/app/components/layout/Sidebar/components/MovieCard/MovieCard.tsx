@@ -1,8 +1,12 @@
 import Image from "next/image"
 import Link from "next/link"
+
 import MaterialIcon from "@components/ui/MaterialIcon"
+
 import { Movie } from "@shared/types/movie.types"
+
 import { getGenreUrl, getMovieUrl } from "@config/helpers/paths/singleEntity"
+
 import s from "./MovieCard.module.scss"
 
 type MovieCardProps = Pick<
@@ -35,7 +39,8 @@ const MovieCard: React.FC<MovieCardProps> = ({
 				<span className={s.genres}>
 					{genres.map(({ _id, name, slug }, i) => (
 						<Link key={_id} href={getGenreUrl(slug)}>
-							{name} {i + 1 === genres.length ? ", " : ""}
+							{name}
+							{i + 1 !== genres.length ? ", " : ""}
 						</Link>
 					))}
 				</span>

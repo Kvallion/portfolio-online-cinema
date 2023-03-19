@@ -1,5 +1,5 @@
+import { AdminHeader } from "@components/admin/AdminHeader"
 import { AdminTable } from "@components/admin/AdminTable"
-import { AdminHeader } from "@components/admin/AdminTable/AdminHeader"
 import Heading from "@ui/heading/Heading"
 import useUsers from "./useUsers"
 
