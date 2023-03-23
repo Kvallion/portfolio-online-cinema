@@ -10,7 +10,7 @@ import { toastError } from "@utils/toastError"
 
 import { getAdminUrl } from "@config/helpers/paths/api"
 
-import { EditMovieData } from "./movie.types"
+import { EditMovieData } from "../movie.types"
 
 export default function useMovieEdit(setValue: UseFormSetValue<EditMovieData>) {
 	const { push, query } = useRouter()

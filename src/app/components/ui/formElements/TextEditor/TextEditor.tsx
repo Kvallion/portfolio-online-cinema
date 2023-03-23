@@ -20,11 +20,19 @@ const TextEditor: React.FC<TextEditorProps> = ({
 	onChange,
 	placeholder,
 	error,
+	className,
 }) => {
 	const { editorState, onEditorStateChange } = useTextEditor(value, onChange)
 
 	return (
-		<div className={cn(fieldStyle.field, s.editor_wrapper, "animate-fade")}>
+		<div
+			className={cn(
+				className,
+				fieldStyle.field,
+				s.editor_wrapper,
+				"animate-fade"
+			)}
+		>
 			<label>
 				<span className={s.placeholder}>{placeholder}</span>
 				<div className={s.wrapper}>

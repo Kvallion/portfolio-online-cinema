@@ -1,0 +1,27 @@
+.upload_field {
+	@apply relative;
+
+	.upload_image_container {
+		@apply relative shrink-0;
+	}
+
+	.image {
+		@apply h-24 w-24 rounded-md image-like-bg;
+	}
+
+	.label {
+		@apply mr-6 block;
+
+		.file_input {
+			@apply mt-4 block w-full text-sm text-gray-600 opacity-70 transition-opacity file:mr-4 file:rounded-full file:border-0 file:bg-primary file:py-2 file:px-4 file:text-sm file:font-semibold file:text-white;
+		}
+
+		&:hover .file_input {
+			@apply opacity-90;
+		}
+	}
+
+	.error {
+		@apply relative -bottom-3;
+	}
+}

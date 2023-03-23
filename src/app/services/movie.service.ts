@@ -15,11 +15,11 @@ export const MovieService = {
 	async getById(id: string) {
 		return axiosPrivate.get<EditMovieData>(getMoviesUrl(`/${id}`))
 	},
-	async getMostPopularMovies() {
+	async getMostPopularMovies(limit?: number) {
 		const { data } = await axiosPublic.get<Movie[]>(
 			getMoviesUrl("/most-popular")
 		)
-		return data
+		return limit ? data.slice(0, limit) : data
 	},
 	async create() {
 		return axiosPrivate.post<string>(getMoviesUrl())

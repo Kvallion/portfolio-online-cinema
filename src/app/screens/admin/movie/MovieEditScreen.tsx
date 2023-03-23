@@ -1,21 +1,31 @@
+import { Select } from ""
+import cn from "clsx"
 import dynamic from "next/dynamic"
 import { Controller, useForm } from "react-hook-form"
-import { stripHtml } from "string-strip-html"
 
+import { AdminEditBtns } from "@components/admin/AdminEditForm/AdminEditBtns"
 import { SlugField } from "@components/admin/AdminEditForm/SlugField"
 
 import SkeletonLoader from "@ui/SkeletonLoader"
-import { Button } from "@ui/formElements/Button"
 import { TextField } from "@ui/formElements/TextField"
+import { UploadField } from "@ui/formElements/UploadField"
+import { field } from "@ui/formElements/common.module.scss"
 import Heading from "@ui/heading/Heading"
 
 import generateSlug from "@utils/string/generateSlug"
 
 import s from "./MovieEditScreen.module.scss"
+import useActorsForSelect from "./hooks/useActorsForSelect"
+import useGenresForSelect from "./hooks/useGenresForSelect"
+import useMovieEdit from "./hooks/useMovieEdit"
 import { EditMovieData } from "./movie.types"
-import useMovieEdit from "./useMovieEdit"
 
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css"
+
+const DynamicSelect = dynamic(
+	async () => (await import("@ui/formElements/Select")).Select,
+	{ ssr: false }
+)
 
 const DynamicTextEditor = dynamic(
 	async () => (await import("@ui/formElements/TextEditor")).TextEditor,
@@ -34,21 +44,24 @@ const MovieEditScreen: React.FC = () => {
 
 	const { isLoading, onSubmit } = useMovieEdit(setValue)
 
+	const { genres, isGenresLoading } = useGenresForSelect()
+	const { actors, isActorsLoading } = useActorsForSelect()
+
 	return (
 		<main>
 			<Heading text="Edit movie" className="mb-4" />
-			{/* <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
+			<form onSubmit={handleSubmit(onSubmit)} className={s.form}>
 				{isLoading ? (
 					<SkeletonLoader count={3} />
 				) : (
 					<>
-						<div className={s.fields}>
+						<div className={s.layout_row}>
 							<TextField
-								{...register("name", {
-									required: "Name is required",
+								{...register("title", {
+									required: "Title is required",
 								})}
-								placeholder="Name"
-								error={errors.name}
+								placeholder="title"
+								error={errors.title}
 								isPlaceholderLifted
 							/>
 
@@ -58,37 +71,164 @@ const MovieEditScreen: React.FC = () => {
 								generate={() =>
 									setValue(
 										"slug",
-										generateSlug(getValues().name)
+										generateSlug(getValues().title)
 									)
 								}
+								className="w-full"
 							/>
-
+						</div>
+						<div className={s.layout_row}>
 							<TextField
-								{...register("icon", {
-									required: "Icon is required",
+								{...register("parameters.country", {
+									required: "Country is required",
 								})}
-								placeholder="Icon"
-								error={errors.icon}
+								placeholder="country"
+								error={errors.parameters?.country}
+								isPlaceholderLifted
+							/>
+							<TextField
+								{...register("parameters.duration", {
+									required: "Duration is required",
+								})}
+								placeholder="duration"
+								error={errors.parameters?.duration}
+								isPlaceholderLifted
+							/>
+							<TextField
+								{...register("parameters.year", {
+									required: "Year is required",
+								})}
+								placeholder="year"
+								error={errors.parameters?.year}
 								isPlaceholderLifted
 							/>
 						</div>
+						<div className={s.layout_row}>
+							<Controller
+								control={control}
+								name="genres"
+								rules={{
+									required: "Genres are required",
+								}}
+								render={({ field, fieldState: { error } }) => (
+									<DynamicSelect
+										field={field}
+										isMulti
+										options={genres || []}
+										placeholder="Genres"
+										isLoading={isGenresLoading}
+										error={error}
+									/>
+								)}
+							/>
+							<Controller
+								control={control}
+								name="actors"
+								rules={{
+									required: "Actors are required",
+								}}
+								render={({ field, fieldState: { error } }) => (
+									<DynamicSelect
+										field={field}
+										isMulti
+										options={actors || []}
+										placeholder="Actors"
+										isLoading={isActorsLoading}
+										error={error}
+									/>
+								)}
+							/>
+						</div>
+
+						<div className={cn(s.layout_row, s.no_mb)}>
+							<Controller
+								control={control}
+								name="poster"
+								rules={{
+									required: "Poster is required",
+								}}
+								render={({
+									field: { value, onChange },
+									fieldState: { error },
+								}) => (
+									<UploadField
+										onChange={onChange}
+										uri={value}
+										folder="movies"
+										placeholder="poster"
+										error={error}
+									/>
+								)}
+							/>
+							<Controller
+								control={control}
+								name="bigPoster"
+								rules={{
+									required: "Big poster is required",
+								}}
+								render={({
+									field: { value, onChange },
+									fieldState: { error },
+								}) => (
+									<UploadField
+										onChange={onChange}
+										uri={value}
+										folder="movies"
+										placeholder="big poster"
+										error={error}
+									/>
+								)}
+							/>
+						</div>
+
+						<div className={s.layout_row}>
+							<Controller
+								control={control}
+								name="videoUrl"
+								rules={{
+									required: "Video is required",
+								}}
+								render={({
+									field: { value, onChange },
+									fieldState: { error },
+								}) => (
+									<UploadField
+										onChange={onChange}
+										uri={value}
+										folder="movies"
+										placeholder="video"
+										error={error}
+										isImage={false}
+									/>
+								)}
+							/>
+						</div>
+
 						<Controller
 							control={control}
 							name="description"
 							defaultValue=""
 							rules={{
-								required: "Poster is required",
+								required: false,
 							}}
 							render={({
 								field: { value, onChange },
 								fieldState: { error },
-							}) => <></>}
+							}) => (
+								<DynamicTextEditor
+									className="mb-8"
+									value={value}
+									onChange={onChange}
+									error={error}
+									placeholder="Description"
+								/>
+							)}
 						/>
 
-						<Button type="submit">Save</Button>
+						<AdminEditBtns />
 					</>
 				)}
-			</form> */}
+			</form>
 		</main>
 	)
 }

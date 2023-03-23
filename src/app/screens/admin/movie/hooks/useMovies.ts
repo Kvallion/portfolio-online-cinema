@@ -29,7 +29,7 @@ export default function useMovies() {
 							genres.map((g) => g.name).join(", "),
 							String(rating),
 						],
-						editUrl: getAdminUrl(`/movies/edit/${_id}`),
+						editUrl: getAdminUrl(`/movie/edit/${_id}`),
 					})
 				),
 			onError(error) {
@@ -61,7 +61,7 @@ export default function useMovies() {
 			onError: (err) => toastError(err, "Create a movie"),
 			onSuccess: ({ data: id }) => {
 				toastr.success("Create a movie", "Created successfully")
-				push(getAdminUrl(`/movies/edit/${id}`))
+				push(getAdminUrl(`/movie/edit/${id}`))
 				queryData.refetch()
 			},
 		}

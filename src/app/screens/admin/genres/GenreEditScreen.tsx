@@ -2,6 +2,7 @@ import dynamic from "next/dynamic"
 import { Controller, useForm } from "react-hook-form"
 import { stripHtml } from "string-strip-html"
 
+import { AdminEditBtns } from "@components/admin/AdminEditForm/AdminEditBtns"
 import { SlugField } from "@components/admin/AdminEditForm/SlugField"
 
 import SkeletonLoader from "@ui/SkeletonLoader"
@@ -77,17 +78,14 @@ const GenreEditScreen: React.FC = () => {
 							name="description"
 							defaultValue=""
 							rules={{
-								validate: {
-									required: (v) =>
-										(v && stripHtml(v).result.length > 0) ||
-										"Description is required",
-								},
+								required: false,
 							}}
 							render={({
 								field: { value, onChange },
 								fieldState: { error },
 							}) => (
 								<DynamicTextEditor
+									className="mb-8"
 									value={value}
 									onChange={onChange}
 									error={error}
@@ -96,7 +94,7 @@ const GenreEditScreen: React.FC = () => {
 							)}
 						/>
 
-						<Button type="submit">Save</Button>
+						<AdminEditBtns />
 					</>
 				)}
 			</form>

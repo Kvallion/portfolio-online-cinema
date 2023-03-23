@@ -3,7 +3,7 @@ import { AdminTable } from "@components/admin/AdminTable"
 
 import Heading from "@ui/heading/Heading"
 
-import useMovies from "./useMovies"
+import useMovies from "./hooks/useMovies"
 
 const MovieListScreen: React.FC = () => {
 	const {

@@ -1,5 +1,7 @@
 import { Menu } from "@components/layout/Navigation/components/Menu"
+
 import SkeletonLoader from "@ui/SkeletonLoader"
+
 import { usePopularGenres } from "./usePopularGenres"
 
 type GenreMenuProps = {}

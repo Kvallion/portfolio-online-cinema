@@ -21,12 +21,12 @@ export default function useActors() {
 		["admin panel actor list", debouncedSearch],
 		() => ActorService.getAll(debouncedSearch),
 		{
-			select: ({ data }) =>
+			select: (data) =>
 				data.map(
 					({ _id, name, slug }): AdminTableRow => ({
 						_id,
 						cells: [name, slug],
-						editUrl: getAdminUrl(`/actors/edit/${_id}`),
+						editUrl: getAdminUrl(`/actor/edit/${_id}`),
 					})
 				),
 			onError(error) {
@@ -58,7 +58,7 @@ export default function useActors() {
 			onError: (err) => toastError(err, "Create an actor"),
 			onSuccess: ({ data: id }) => {
 				toastr.success("Create an actor", "Created successfully")
-				push(getAdminUrl(`/actors/edit/${id}`))
+				push(getAdminUrl(`/actor/edit/${id}`))
 				queryData.refetch()
 			},
 		}

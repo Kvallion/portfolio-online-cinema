@@ -1,6 +1,8 @@
 import Head from "next/head"
 import NextProgressBar from "nextjs-progressbar"
-import { accentColor } from "@config/const"
+
+import { accentColor } from "@shared/const"
+
 import FavIcons from "./FavIcons"
 
 const HeadProvider: React.FC<{ children: React.ReactNode }> = ({

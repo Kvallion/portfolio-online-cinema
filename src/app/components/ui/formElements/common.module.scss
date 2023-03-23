@@ -1,0 +1,15 @@
+.placeholder {
+	@apply block text-xs uppercase text-gray-600;
+}
+
+.error {
+	@apply mt-2 w-full text-left text-sm text-primary;
+}
+
+.field {
+	@apply mb-8 text-left;
+
+	input {
+		@apply m-0 w-full bg-transparent px-0 text-gray-500 outline-border-none focus:ring-0;
+	}
+}

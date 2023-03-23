@@ -1,9 +1,16 @@
+import dynamic from "next/dynamic"
+
 import {
 	MenuItem,
 	MenuItemProps,
 } from "@components/layout/Navigation/components/MenuItem"
-import { AuthItems } from "../AuthItems"
+
 import s from "./Menu.module.scss"
+
+const DynamicAuthItems = dynamic(
+	async () => (await import("../AuthItems")).AuthItems,
+	{ ssr: false }
+)
 
 export type MenuProps = {
 	title: string
@@ -18,7 +25,7 @@ const Menu: React.FC<MenuProps> = ({ title, items }) => {
 				{items.map((item) => (
 					<MenuItem key={item.link} {...item} />
 				))}
-				{title === "general" && <AuthItems />}
+				{title === "general" && <DynamicAuthItems />}
 			</ul>
 		</nav>
 	)

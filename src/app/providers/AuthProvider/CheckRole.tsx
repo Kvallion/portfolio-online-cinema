@@ -1,6 +1,7 @@
 import { useRouter } from "next/router"
+
 import { useAuth } from "@hooks/useAuth"
-import { useLogger } from "@hooks/useLogger"
+
 import { HasChildren } from "@shared/types/components.utility.types"
 import { RoleAccessConfig } from "@shared/types/roles.types"
 

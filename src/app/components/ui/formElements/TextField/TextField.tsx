@@ -1,7 +1,7 @@
 import cn from "clsx"
-import { InputHTMLAttributes, forwardRef, useEffect } from "react"
+import { InputHTMLAttributes, forwardRef } from "react"
 import { FieldError } from "react-hook-form"
-import { useLogger } from "@hooks/useLogger"
+
 import s from "./TextField.module.scss"
 
 export type TextFieldProps = InputHTMLAttributes<HTMLInputElement> & {

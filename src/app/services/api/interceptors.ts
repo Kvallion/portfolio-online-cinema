@@ -1,9 +1,12 @@
 import axios from "axios"
 import Cookies from "js-cookie"
+
 import { getErrorMsg } from "@services/api/errors"
 import { removeUserData } from "@services/auth/auth.helper"
 import { authService } from "@services/auth/auth.service"
+
 import { API_URL } from "@config/api.config"
+
 import { ContentTypeJson } from "./consts"
 
 export const axiosPublic = axios.create({

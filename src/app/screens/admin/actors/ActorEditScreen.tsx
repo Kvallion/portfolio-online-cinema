@@ -1,26 +1,22 @@
-import dynamic from "next/dynamic"
+import { useRouter } from "next/router"
 import { Controller, useForm } from "react-hook-form"
-import { stripHtml } from "string-strip-html"
 
+import { AdminEditBtns } from "@components/admin/AdminEditForm/AdminEditBtns"
 import { SlugField } from "@components/admin/AdminEditForm/SlugField"
 
 import SkeletonLoader from "@ui/SkeletonLoader"
 import { Button } from "@ui/formElements/Button"
 import { TextField } from "@ui/formElements/TextField"
+import { UploadField } from "@ui/formElements/UploadField"
 import Heading from "@ui/heading/Heading"
 
 import generateSlug from "@utils/string/generateSlug"
 
-import s from "./ActorEditScreen.module.scss"
+import s from "../genres/GenreEditScreen.module.scss"
 import { EditActorData } from "./actor.types"
 import useActorEdit from "./useActorEdit"
 
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css"
-
-const DynamicTextEditor = dynamic(
-	async () => (await import("@ui/formElements/TextEditor")).TextEditor,
-	{ ssr: false }
-)
 
 const ActorEditScreen: React.FC = () => {
 	const {
@@ -37,7 +33,7 @@ const ActorEditScreen: React.FC = () => {
 	return (
 		<main>
 			<Heading text="Edit actor" className="mb-4" />
-			{/* <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
+			<form onSubmit={handleSubmit(onSubmit)} className={s.form}>
 				{isLoading ? (
 					<SkeletonLoader count={3} />
 				) : (
@@ -45,9 +41,9 @@ const ActorEditScreen: React.FC = () => {
 						<div className={s.fields}>
 							<TextField
 								{...register("name", {
-									required: "Name is required",
+									required: "Full name is required",
 								})}
-								placeholder="Name"
+								placeholder="Full name"
 								error={errors.name}
 								isPlaceholderLifted
 							/>
@@ -62,44 +58,31 @@ const ActorEditScreen: React.FC = () => {
 									)
 								}
 							/>
-
-							<TextField
-								{...register("icon", {
-									required: "Icon is required",
-								})}
-								placeholder="Icon"
-								error={errors.icon}
-								isPlaceholderLifted
-							/>
 						</div>
 						<Controller
 							control={control}
-							name="description"
-							defaultValue=""
+							name="photo"
 							rules={{
-								validate: {
-									required: (v) =>
-										(v && stripHtml(v).result.length > 0) ||
-										"Description is required",
-								},
+								required: "Photo is required",
 							}}
 							render={({
 								field: { value, onChange },
 								fieldState: { error },
 							}) => (
-								<DynamicTextEditor
-									value={value}
+								<UploadField
 									onChange={onChange}
+									uri={value}
 									error={error}
-									placeholder="Description"
+									folder="actors"
+									placeholder="Photo"
 								/>
 							)}
 						/>
 
-						<Button type="submit">Save</Button>
+						<AdminEditBtns />
 					</>
 				)}
-			</form> */}
+			</form>
 		</main>
 	)
 }
