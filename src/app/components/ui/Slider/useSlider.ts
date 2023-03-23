@@ -21,7 +21,7 @@ export default function useSlider(length: number) {
 		setTimeout(() => {
 			setCurrentIndex(newIndex)
 			setSlideIn(true)
-		}, 300) // to change transition duration should be changed in slider.scss global style
+		}, 300) // to change the delay, transition duration should be changed in slider.scss global stylesheet
 	}
 
 	return {

@@ -1,5 +1,8 @@
+import cn from "clsx"
 import Image from "next/image"
 import { useRouter } from "next/router"
+
+import { useLogger } from "@hooks/useLogger"
 
 import { ISlide } from "../Slider.types"
 import s from "./Slide.module.scss"
@@ -15,6 +18,9 @@ const Slide: React.FC<SlideProps> = ({
 }) => {
 	const { push } = useRouter()
 
+	useLogger(bigPoster, "bigPoster")
+	const objectPosition = bigPoster.split(".")[0].split("-").at(-1)
+
 	return (
 		<div className={s.slide}>
 			{bigPoster && (
@@ -22,9 +28,11 @@ const Slide: React.FC<SlideProps> = ({
 					src={bigPoster}
 					alt={title + "movie"}
 					fill
-					className={s.image}
+					className={cn(s.image, {
+						[s.top]: objectPosition === "top",
+						[s.bottom]: objectPosition === "bottom",
+					})}
 					draggable={false}
-					unoptimized
 					priority
 				/>
 			)}

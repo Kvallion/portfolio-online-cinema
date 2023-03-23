@@ -6,6 +6,13 @@
 
 	.image {
 		@apply image-like-bg;
+
+		&.top {
+			@apply object-top;
+		}
+		&.bottom {
+			@apply object-bottom;
+		}
 	}
 
 	.content {

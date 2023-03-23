@@ -2,7 +2,9 @@
 	@apply mb-4 flex items-stretch;
 
 	.poster {
-		@apply rounded-image border border-transparent transition-colors;
+		@apply rounded-image border border-transparent transition-colors image-like-bg;
+		width: 65px;
+		height: 97px;
 	}
 	&:hover {
 		.poster {

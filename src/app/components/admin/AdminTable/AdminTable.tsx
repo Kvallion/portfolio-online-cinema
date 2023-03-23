@@ -1,4 +1,5 @@
 import SkeletonLoader from "@ui/SkeletonLoader"
+
 import s from "./AdminTable.module.scss"
 import { AdminTableRow as IAdminTableRow } from "./AdminTable.type"
 import { AdminTableHeader } from "./AdminTableHeader"
@@ -25,13 +26,17 @@ const AdminTable: React.FC<AdminTableProps> = ({
 				{!isLoading &&
 					(rows.length ? (
 						<tbody className="block">
-							{rows.map((row) => (
-								<AdminTableRow
-									key={row._id}
-									removeHandler={() => removeHandler(row._id)}
-									row={row}
-								/>
-							))}
+							{rows.map((row) =>
+								row.cells[0] ? (
+									<AdminTableRow
+										key={row._id}
+										removeHandler={() =>
+											removeHandler(row._id)
+										}
+										row={row}
+									/>
+								) : null
+							)}
 						</tbody>
 					) : (
 						<tbody className={s.not_found}>
