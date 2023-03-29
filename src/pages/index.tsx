@@ -2,7 +2,7 @@ import { GetStaticProps, InferGetStaticPropsType } from "next"
 
 import { HomeScreen } from "@screens/Home"
 
-import { GalleryItem } from "@components/Gallery/Gallery.types"
+import { IGalleryItem } from "@components/Gallery/Gallery.types"
 import Meta from "@components/meta/Meta"
 
 import { ISlide } from "@ui/Slider/Slider.types"
@@ -23,8 +23,8 @@ import movie2Slide from "@utils/transformData/movie2Slide"
 
 export type HomePageProps = {
 	slides: ISlide[]
-	trendingMovies: GalleryItem[]
-	actors: GalleryItem[]
+	trendingMovies: IGalleryItem[]
+	actors: IGalleryItem[]
 }
 
 export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
@@ -35,14 +35,14 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
 			return []
 		})
 
-	const actors: GalleryItem[] = await ActorService.getAll(undefined, 7)
+	const actors: IGalleryItem[] = await ActorService.getPopular(7)
 		.then((actors) => actors.map(actor2GalleryItem))
 		.catch((err) => {
 			toastError(err, ACTOR_GALLERY_FETCH_ERR)
 			return []
 		})
 
-	const trendingMovies: GalleryItem[] =
+	const trendingMovies: IGalleryItem[] =
 		await MovieService.getMostPopularMovies(7)
 			.then((movies) => movies.map(movie2GalleryItem))
 			.catch((err) => {

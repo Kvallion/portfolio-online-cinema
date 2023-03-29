@@ -1,4 +1,4 @@
-import { GalleryItem } from "@components/Gallery/Gallery.types"
+import { IGalleryItem } from "@components/Gallery/Gallery.types"
 
 import { Actor } from "@shared/types/movie.types"
 
@@ -9,9 +9,9 @@ const actor2GalleryItem = ({
 	photo,
 	slug,
 	countMovies,
-}: Actor): GalleryItem => ({
+}: Actor): IGalleryItem => ({
 	name,
-	posterPath: photo,
+	verticalImg: photo,
 	link: getActorUrl(slug),
 	content: {
 		title: name,

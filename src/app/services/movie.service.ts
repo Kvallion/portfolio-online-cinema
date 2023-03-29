@@ -1,6 +1,6 @@
 import { EditMovieData } from "@screens/admin/movie/movie.types"
 
-import { Movie } from "@shared/types/movie.types"
+import { Genre, Movie } from "@shared/types/movie.types"
 
 import { getMoviesUrl } from "@config/helpers/paths/api"
 
@@ -21,6 +21,15 @@ export const MovieService = {
 		)
 		return limit ? data.slice(0, limit) : data
 	},
+	async getByGenres(genreIds: string[]) {
+		return axiosPublic.post<Movie[]>(getMoviesUrl("/by-genres"), {
+			genreIds,
+		})
+	},
+	async getByActor(actorId: string) {
+		return axiosPublic.get<Movie[]>(getMoviesUrl(`/by-actor/${actorId}`))
+	},
+
 	async create() {
 		return axiosPrivate.post<string>(getMoviesUrl())
 	},

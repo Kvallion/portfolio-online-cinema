@@ -1,4 +1,3 @@
-import { Select } from ""
 import cn from "clsx"
 import dynamic from "next/dynamic"
 import { Controller, useForm } from "react-hook-form"
@@ -47,6 +46,8 @@ const MovieEditScreen: React.FC = () => {
 	const { genres, isGenresLoading } = useGenresForSelect()
 	const { actors, isActorsLoading } = useActorsForSelect()
 
+	const genSlug = () => setValue("slug", generateSlug(getValues().title))
+
 	return (
 		<main>
 			<Heading text="Edit movie" className="mb-4" />
@@ -60,6 +61,7 @@ const MovieEditScreen: React.FC = () => {
 								{...register("title", {
 									required: "Title is required",
 								})}
+								onBlur={genSlug}
 								placeholder="title"
 								error={errors.title}
 								isPlaceholderLifted
@@ -68,12 +70,7 @@ const MovieEditScreen: React.FC = () => {
 							<SlugField
 								register={register}
 								error={errors.slug}
-								generate={() =>
-									setValue(
-										"slug",
-										generateSlug(getValues().title)
-									)
-								}
+								generate={genSlug}
 								className="w-full"
 							/>
 						</div>

@@ -1,14 +1,12 @@
-import { useRouter } from "next/router"
 import { Controller, useForm } from "react-hook-form"
 
 import { AdminEditBtns } from "@components/admin/AdminEditForm/AdminEditBtns"
 import { SlugField } from "@components/admin/AdminEditForm/SlugField"
 
-import SkeletonLoader from "@ui/SkeletonLoader"
-import { Button } from "@ui/formElements/Button"
 import { TextField } from "@ui/formElements/TextField"
 import { UploadField } from "@ui/formElements/UploadField"
 import Heading from "@ui/heading/Heading"
+import SkeletonLoader from "@ui/SkeletonLoader"
 
 import generateSlug from "@utils/string/generateSlug"
 
@@ -30,6 +28,8 @@ const ActorEditScreen: React.FC = () => {
 
 	const { isLoading, onSubmit } = useActorEdit(setValue)
 
+	const genSlug = () => setValue("slug", generateSlug(getValues().name))
+
 	return (
 		<main>
 			<Heading text="Edit actor" className="mb-4" />
@@ -43,6 +43,7 @@ const ActorEditScreen: React.FC = () => {
 								{...register("name", {
 									required: "Full name is required",
 								})}
+								onBlur={genSlug}
 								placeholder="Full name"
 								error={errors.name}
 								isPlaceholderLifted
@@ -51,12 +52,7 @@ const ActorEditScreen: React.FC = () => {
 							<SlugField
 								register={register}
 								error={errors.slug}
-								generate={() =>
-									setValue(
-										"slug",
-										generateSlug(getValues().name)
-									)
-								}
+								generate={genSlug}
 							/>
 						</div>
 						<Controller

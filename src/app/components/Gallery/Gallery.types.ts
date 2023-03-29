@@ -1,5 +1,6 @@
-export type GalleryItem = {
-	posterPath: string
+export interface IGalleryItem {
+	verticalImg: string
+	horizontalImg?: string
 	name: string
 	link: string
 	content?: {
@@ -8,7 +9,10 @@ export type GalleryItem = {
 	}
 }
 
+export type GalleryVariant = "vertical" | "horizontal"
+
 export type GalleryItemProps = {
-	item: GalleryItem
-	variant: "vertical" | "horizontal"
+	item: IGalleryItem
+	variant: GalleryVariant
+	className?: string
 }

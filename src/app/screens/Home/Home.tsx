@@ -1,6 +1,7 @@
 import { HomePageProps } from "pages"
 import { toastr } from "react-redux-toastr"
 
+import { Gallery } from "@components/Gallery"
 import { Button } from "@components/ui/formElements/Button"
 import Heading from "@components/ui/heading/Heading"
 
@@ -27,10 +28,12 @@ const HomeScreen: React.FC<HomePageProps> = ({
 
 			<div className="my-10">
 				<Subheading text="Trending now" />
+				<Gallery items={trendingMovies} variant="vertical" />
 			</div>
 
 			<div className="my-10">
 				<Subheading text="Best actors" />
+				<Gallery items={actors} variant="vertical" />
 			</div>
 
 			<Button onClick={() => logout()}>Logout</Button>

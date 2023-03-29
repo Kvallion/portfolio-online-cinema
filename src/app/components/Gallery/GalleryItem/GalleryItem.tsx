@@ -8,19 +8,31 @@ import { item } from "@components/layout/Navigation/components/MenuItem/MenuItem
 import s from "./GalleryItem.module.scss"
 
 const GalleryItem: React.FC<GalleryItemProps> = ({
-	item: { link, name, posterPath, content },
+	item: { link, name, verticalImg, horizontalImg, content },
 	variant,
+	className,
 }) => {
 	return (
 		<Link
 			href={link}
-			className={cn(s.item, {
+			className={cn(s.item, className, {
 				[s.with_text]: content,
 				[s.horizontal]: variant === "horizontal",
 				[s.vertical]: variant === "vertical",
 			})}
 		>
-			<Image src={posterPath} alt={name} draggable={false} priority />
+			<Image
+				fill
+				src={
+					variant === "horizontal"
+						? horizontalImg || verticalImg
+						: verticalImg
+				}
+				alt={name}
+				className={s.image}
+				draggable={false}
+				priority
+			/>
 			{content && (
 				<div className={s.content}>
 					<h6 className={s.title}>{content.title}</h6>

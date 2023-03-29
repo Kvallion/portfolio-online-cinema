@@ -35,6 +35,8 @@ const GenreEditScreen: React.FC = () => {
 
 	const { isLoading, onSubmit } = useGenreEdit(setValue)
 
+	const genSlug = () => setValue("slug", generateSlug(getValues().name))
+
 	return (
 		<main>
 			<Heading text="Edit genre" className="mb-4" />
@@ -48,6 +50,7 @@ const GenreEditScreen: React.FC = () => {
 								{...register("name", {
 									required: "Name is required",
 								})}
+								onBlur={genSlug}
 								placeholder="Name"
 								error={errors.name}
 								isPlaceholderLifted
@@ -56,12 +59,7 @@ const GenreEditScreen: React.FC = () => {
 							<SlugField
 								register={register}
 								error={errors.slug}
-								generate={() =>
-									setValue(
-										"slug",
-										generateSlug(getValues().name)
-									)
-								}
+								generate={genSlug}
 							/>
 
 							<TextField

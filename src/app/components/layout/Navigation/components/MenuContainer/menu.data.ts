@@ -5,7 +5,7 @@ export const firstMenu: MenuProps = {
 	items: [
 		{ icon: "MdHome", link: "/", title: "Home" },
 		{ icon: "MdExplore", link: "/discovery", title: "Discovery" },
-		{ icon: "MdWineBar", link: "/fresh_movies", title: "Fresh movies" },
+		{ icon: "MdWineBar", link: "/fresh-movies", title: "Fresh movies" },
 		{ icon: "MdWhatshot", link: "/trending", title: "Trending now" },
 	],
 }
